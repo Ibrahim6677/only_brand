@@ -3,6 +3,9 @@
     "datebase",
     "dbconnection",
     "errorrmiddleware",
-    "mahmoudyou"
+    "mahmoudyou",
+    "Schemaa",
+    "validatormiddelware",
+    "validatormiddleware"
   ]
 }

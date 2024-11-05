@@ -1,4 +1,4 @@
-// @desc creat middleware catch error if rules was wrong
+// @desc create middleware catch error if rules was wrong
 const { validationResult } = require("express-validator");
 
 const validatormiddleware = (req, res, next) => {
