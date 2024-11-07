@@ -19,14 +19,14 @@ const Category = () => {
         breakpoints={{
           320: {
             slidesPerView: 2, // عدد العناصر المرئية للشاشات الصغيرة جداً
-            spaceBetween: 10,
+            spaceBetween: 15,
           },
           640: {
             slidesPerView: 3, // عدد العناصر المرئية للشاشات المتوسطة
             spaceBetween: 15,
           },
           768: {
-            slidesPerView: 4, // عدد العناصر المرئية للأجهزة اللوحية
+            slidesPerView: 3, // عدد العناصر المرئية للأجهزة اللوحية
             spaceBetween: 20,
           },
           1024: {
