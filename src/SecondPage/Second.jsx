@@ -73,4 +73,4 @@ const Second = () => {
   );
 };
 
-export default Second;
+export default Second;
