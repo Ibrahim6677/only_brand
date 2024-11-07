@@ -7,7 +7,7 @@ class ApiFeatures {
   // methods
   filter() {
     const queryStringObj = { ...this.queryString };
-    const excludesFields = ["page", "sort", "limit", "fields"];
+    const excludesFields = ["page", "sort", "limit", "fields","keyword"];
     excludesFields.forEach((field) => delete queryStringObj[field]);
     // Apply filtration using [gte, gt, lte, lt]
     let queryStr = JSON.stringify(queryStringObj);
@@ -28,7 +28,7 @@ class ApiFeatures {
     return this;
   }
 
-  limitFields() {
+  fields() {
     if (this.queryString.fields) {
       const fields = this.queryString.fields.split(",").join(" ");
       this.Query = this.mongooseQuery.select(fields);
@@ -64,18 +64,14 @@ class ApiFeatures {
     return this;
   }
 
-  
-  keyword(modelName) {
+  keyword() {
     if (this.queryString.keyword) {
       let query = {};
-      if (modelName === "Products") {
-        query.$or = [
-          { title: { $regex: this.queryString.keyword, $options: "i" } },
-          { description: { $regex: this.queryString.keyword, $options: "i" } },
-        ];
-      } else {
-        query = { name: { $regex: this.queryString.keyword, $options: "i" } };
-      }
+      query.$or = [
+        { title: { $regex: this.queryString.keyword, $options: "i" } },
+        { description: { $regex: this.queryString.keyword, $options: "i" } },
+         { name: { $regex: this.queryString.keyword, $options: "i" } },
+      ];
 
       this.mongooseQuery = this.mongooseQuery.find(query);
     }
