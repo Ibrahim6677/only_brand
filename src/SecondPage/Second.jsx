@@ -6,8 +6,8 @@ import { Autoplay } from 'swiper/modules';
 
 const Second = () => {
   return (
-    <div style={{ textAlign: 'center', padding: '20px', margin: '20px' }}>
-      <h2 style={{ margin: '0 0 20px 0' }}>FEEL CONFIDENT AND BEAUTIFUL IN EVERY OUTFIT</h2>
+    <div style={{ textAlign: 'center', padding: '20px', margin: '20px 0' }}>
+      <h2>FEEL CONFIDENT AND BEAUTIFUL IN EVERY OUTFIT</h2>
       <Swiper
         modules={[Autoplay]}
         spaceBetween={5} // المسافة بين العناصر
