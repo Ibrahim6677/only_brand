@@ -96,4 +96,8 @@ const Second = () => {
   );
 };
 
+<<<<<<< HEAD
 export default Second;
+=======
+export default Second;
+>>>>>>> a86baeb654ab628ce72a135156a2548f89a018a1
