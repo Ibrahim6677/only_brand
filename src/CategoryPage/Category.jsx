@@ -6,20 +6,15 @@ import { Autoplay } from "swiper/modules";
 
 const Category = () => {
   return (
-<<<<<<< HEAD
-    <div
-      style={{
-        textAlign: "center",
-        padding: "30px",
-        margin: "20px 0",
-        backgroundColor: "var(--Black-100, #E6E6E6)",
-      }}
-    >
-      <h2 style={{ padding: "20px 0" }}>Shop By Categories</h2>
-=======
-    <div style={{ textAlign: 'center', margin: '20px 0', backgroundColor: 'var(--Black-100, #E6E6E6)' }}>
-      <h2 style={{ padding: '20px 0' }}>Shop By Categories</h2>
->>>>>>> a86baeb654ab628ce72a135156a2548f89a018a1
+<div
+  style={{
+    textAlign: "center",
+    padding: "30px",
+    margin: "20px 0",
+    backgroundColor: "var(--Black-100, #E6E6E6)",
+  }}
+>
+  <h2 style={{ padding: "20px 0" }}>Shop By Categories</h2>
       <Swiper
         modules={[Autoplay]}
         spaceBetween={5} // المسافة بين العناصر
@@ -351,8 +346,4 @@ const Category = () => {
   );
 };
 
-<<<<<<< HEAD
 export default Category;
-=======
-export default Category;
->>>>>>> a86baeb654ab628ce72a135156a2548f89a018a1
