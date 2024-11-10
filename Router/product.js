@@ -16,10 +16,7 @@ const {
 
 const router = express.Router();
 
-router
-  .route("/")
-  .post(CreatProductValidator, creatProduct)
-  .get(getProducts);
+router.route("/").post(CreatProductValidator, creatProduct).get(getProducts);
 router
   .route("/:id")
   .get(GetProductValidator, getProduct)
