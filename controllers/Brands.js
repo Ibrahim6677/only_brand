@@ -6,7 +6,7 @@ const Brands = require("../Schema/Brands");
 const factory = require("./handlerfactory");
 
 exports.UploadBrandImage = Uploadsinglimage("image");
-// apply image processing  middelware by using memory storage buffer
+// apply image processing by sharp
 exports.ResizeBrandImage = asyncHandler(async (req, res, next) => {
   const filename = `brand-${uuidv4()}-${Date.now()}.jpeg`;
   await sharp(req.file.buffer)
@@ -14,7 +14,7 @@ exports.ResizeBrandImage = asyncHandler(async (req, res, next) => {
     .toFormat("jpeg")
     .jpeg({ quality: 95 })
     .toFile(`uploads/brands/${filename}`);
-  // upload image name to our datebase
+  // upload image name to our db
   req.body.image = filename;
   next();
 });

@@ -27,12 +27,12 @@ const SetImageUrl = (doc) => {
   }
 };
 
-// init middleware mongoose
+// init mongoose middleware  
 categorySchema.post("init", function (doc) {
   SetImageUrl(doc);
 });
 
-// save middleware mongoose 
+// save mongoose middleware  
 
 categorySchema.post("save", (doc) => {
   SetImageUrl(doc);

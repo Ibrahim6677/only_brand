@@ -52,6 +52,7 @@ class ApiFeatures {
     if (endIndex < countDocuments) {
       pagination.next = page + 1;
     }
+    // previous page
     if (skip > 0) {
       pagination.prev = page - 1;
     }

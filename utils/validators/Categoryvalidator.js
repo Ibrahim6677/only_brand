@@ -26,7 +26,6 @@ exports.GetCategoryValidator = [
 exports.UpdateCategoryValidator = [
   check("id").optional().isMongoId("").withMessage("invalid category id format"),
   check("name").optional().custom((value,{req})=>{
-    // يقوم هذا السطر بإضافة خاصية slug إلى جسم الطلب (req.body) أو تحديثها إذا كانت موجودة مسبقًا.
     req.body.slug = slugify(value);
     return true;
   }),

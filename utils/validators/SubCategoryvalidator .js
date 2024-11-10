@@ -1,5 +1,4 @@
 // @des rules
-// ctrl + D  to update the words
 const { check,body } = require("express-validator");
 const slugify = require("slugify");
 

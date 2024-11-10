@@ -11,7 +11,7 @@ exports.UploadProductImage = UploadArrayofImages([
   { name: "imageCover", maxCount: 1 },
   { name: "images", maxCount: 5 },
 ]);
-// apply image processing  middelware
+// apply image processing 
 exports.ResizeProductImage = asyncHandler(async (req, res, next) => {
   // image processing for imageCover
   if (req.files.imageCover) {
@@ -21,7 +21,7 @@ exports.ResizeProductImage = asyncHandler(async (req, res, next) => {
       .toFormat("jpeg")
       .jpeg({ quality: 85 })
       .toFile(`uploads/products/${imageCoverFileName}`);
-    // upload image name to our datebase
+    // upload image name to our db
     req.body.imageCover = imageCoverFileName;
   }
   // image processing for images

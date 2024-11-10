@@ -6,16 +6,15 @@ const sharp = require("sharp");
 const { Uploadsinglimage } = require("../middlewares/uploadimagesmiddleware");
 
 exports.UploadCategoryImage = Uploadsinglimage("image");
-// apply image processing  middelware by using memory storage buffer
+// apply image processing  
 exports.ResizeCategoryImage = asyncHandler(async (req, res, next) => {
-  // console.log(req.file)
   const filename = `category-${uuidv4()}-${Date.now()}.jpeg`;
   await sharp(req.file.buffer)
     .resize(200, 200)
     .toFormat("jpeg")
     .jpeg({ quality: 5 })
     .toFile(`uploads/categories/${filename}`);
-  // upload image name to our datebase
+  // upload image name to our db
   req.body.image = filename;
   next();
 });

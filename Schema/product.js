@@ -95,12 +95,12 @@ const SetImageUrl = (doc) => {
   }
 };
 
-// init middleware mongoose 
+// init mongoose middleware  
 productSchema.post("init", function (doc) {
   SetImageUrl(doc);
 });
 
-// save middleware mongoose 
+// save mongoose middleware  
 
 productSchema.post("save", (doc) => {
   SetImageUrl(doc);
