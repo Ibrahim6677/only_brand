@@ -1,6 +1,7 @@
 // @des rules
 
 const { check } = require("express-validator");
+const slugify = require("slugify");
 const validatormiddelware = require("../../middlewares/validatormiddelware");
 
 exports.CreatcategoryValidator = [
@@ -10,7 +11,10 @@ exports.CreatcategoryValidator = [
     .isLength({ min: 3 })
     .withMessage("Too short category name")
     .isLength({ max: 20 })
-    .withMessage("Too long category name"),
+    .withMessage("Too long category name").custom((value, { req }) => {
+      req.body.slug = slugify(value);
+      return true;
+    }),
   validatormiddelware,
 ];
 
@@ -20,7 +24,12 @@ exports.GetCategoryValidator = [
 ];
 
 exports.UpdateCategoryValidator = [
-  check("id").isMongoId("").withMessage("invalid category id format"),
+  check("id").optional().isMongoId("").withMessage("invalid category id format"),
+  check("name").optional().custom((value,{req})=>{
+    // يقوم هذا السطر بإضافة خاصية slug إلى جسم الطلب (req.body) أو تحديثها إذا كانت موجودة مسبقًا.
+    req.body.slug = slugify(value);
+    return true;
+  }),
   validatormiddelware,
 ];
 

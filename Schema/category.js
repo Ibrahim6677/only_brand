@@ -20,6 +20,24 @@ const categorySchema = new Schemaa(
   { timestamps: { createdAt: true, updatedAt: true } }
 );
 
+const SetImageUrl = (doc) => {
+  if (doc.image) {
+    const ImageUrl = `${process.env.BASE_URL}/categories/${doc.image}`;
+    doc.image = ImageUrl;
+  }
+};
+
+// init middleware mongoose
+categorySchema.post("init", function (doc) {
+  SetImageUrl(doc);
+});
+
+// save middleware mongoose 
+
+categorySchema.post("save", (doc) => {
+  SetImageUrl(doc);
+});
+
 const Category = mongoose.model("Category", categorySchema);
 
 module.exports = Category;

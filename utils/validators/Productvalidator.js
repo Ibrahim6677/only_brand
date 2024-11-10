@@ -1,6 +1,9 @@
 // @des rules
 // ctrl + D  to update the words
-const { check } = require("express-validator");
+const { check ,body} = require("express-validator");
+const slugify = require("slugify");
+
+
 const validatormiddelware = require("../../middlewares/validatormiddelware");
 const CategorySchema = require("../../Schema/category");
 const SubCategorySchema = require("../../Schema/subCategory");
@@ -12,6 +15,10 @@ exports.GetProductValidator = [
 
 exports.UpdateProductValidator = [
   check("id").isMongoId("").withMessage("invalid Product id format"),
+  body("title").optional().custom((value,{req})=>{
+    req.body.slug = slugify(value);
+    return true;
+  }),
   validatormiddelware,
 ];
 
@@ -27,7 +34,10 @@ exports.CreatProductValidator = [
     .isLength({ min: 3 })
     .withMessage("Product title too short")
     .isLength({ max: 100 })
-    .withMessage("Product title too long"),
+    .withMessage("Product title too long").custom((value, { req }) => {
+      req.body.slug = slugify(value);
+      return true;
+    }),
   check("description")
     .notEmpty()
     .withMessage("product description is required")

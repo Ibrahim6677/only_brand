@@ -1,6 +1,8 @@
 // @des rules
 // ctrl + D  to update the words
-const { check } = require("express-validator");
+const { check,body } = require("express-validator");
+const slugify = require("slugify");
+
 const validatormiddelware = require("../../middlewares/validatormiddelware");
 
 exports.GetsubCategoryValidator = [
@@ -10,7 +12,14 @@ exports.GetsubCategoryValidator = [
 
 exports.UpdatesubCategoryValidator = [
   check("id").isMongoId("").withMessage("invalid subcategory id format"),
-  check("name").not().isEmpty().withMessage("subcategory name is required"),
+  check("name").notEmpty().withMessage("subcategory name is required"),
+  body("name")
+    .optional()
+    .custom((value, { req }) => {
+      req.body.slug = slugify(value);
+      return true;
+    }),
+
   validatormiddelware,
 ];
 
@@ -26,7 +35,10 @@ exports.CreatsubcategoryValidator = [
     .isLength({ min: 2 })
     .withMessage("Too short subcategory name")
     .isLength({ max: 20 })
-    .withMessage("Too long subcategory name"),
+    .withMessage("Too long subcategory name").custom((value, { req }) => {
+      req.body.slug = slugify(value);
+      return true;
+    }),
   check("category")
     .notEmpty()
     .withMessage("subcategoy must be belong to categoty")
