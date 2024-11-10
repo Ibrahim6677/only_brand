@@ -23,9 +23,9 @@ const Navbar = () => {
           {/* Logo - وضع الشعار في المنتصف */}
           <a className="navbar-brand mx-lg-auto" href="##">
             <img
-              src="/public/images/logo_yet.png"
+              src="/public/images/logo yet.png"
               alt=""
-              style={{ height: "30px" }}
+              style={{ height: "30px"}}
             />
           </a>
 
@@ -50,7 +50,7 @@ const Navbar = () => {
               </li>
             </ul>
             <ul>
-              <li>
+              <li style={{listStyle: "none"}}>
                 <img
                   className="img-home-nav"
                   src="/images/logo yet.png"

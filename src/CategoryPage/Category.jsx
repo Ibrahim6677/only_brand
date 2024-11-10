@@ -6,15 +6,15 @@ import { Autoplay } from "swiper/modules";
 
 const Category = () => {
   return (
-<div
-  style={{
-    textAlign: "center",
-    padding: "30px",
-    margin: "20px 0",
-    backgroundColor: "var(--Black-100, #E6E6E6)",
-  }}
->
-  <h2 style={{ padding: "20px 0" }}>Shop By Categories</h2>
+    <div
+      style={{
+        textAlign: "center",
+        padding: "30px",
+        margin: "20px 0",
+        backgroundColor: "var(--Black-100, #E6E6E6)",
+      }}
+    >
+      <h2 style={{ padding: "20px 0" }}>Shop By Categories</h2>
       <Swiper
         modules={[Autoplay]}
         spaceBetween={5} // المسافة بين العناصر
