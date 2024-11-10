@@ -95,5 +95,4 @@ const Second = () => {
     </div>
   );
 };
-
 export default Second;

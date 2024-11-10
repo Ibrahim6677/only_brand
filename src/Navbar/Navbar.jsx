@@ -1,11 +1,15 @@
 import React from "react";
-import { FaSearch, FaHeart, FaShoppingCart, FaUser } from "react-icons/fa";
+import {
+  FaRegHeart, // أيقونة القلب الفارغة
+  FaRegUser, // أيقونة المستخدم الفارغة
+} from "react-icons/fa";
+import { FiSearch, FiShoppingCart } from "react-icons/fi"; // أيقونات فارغة للبحث وعربة التسوق
 import "./Navbar.css";
 
 const Navbar = () => {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg ">
+      <nav className="navbar navbar-expand-lg">
         <div className="container-fluid">
           {/* Navbar Toggle Button for Mobile */}
           <button
@@ -17,7 +21,11 @@ const Navbar = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon"></span>
+            <img
+              src="/images/logo yet.png"
+              alt="Toggle navigation"
+              className="navbar-toggler-image"
+            />
           </button>
 
           {/* Logo - وضع الشعار في المنتصف */}
@@ -29,9 +37,9 @@ const Navbar = () => {
             />
           </a>
 
-          {/* Navbar Content - يتم طيها في الشاشات الصغيرة */}
+          {/* Navbar Content */}
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            {/* Links Menu - نصوص القائمة */}
+            {/* Links Menu */}
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <a className="nav-link" href="#new-arrival">
@@ -62,22 +70,22 @@ const Navbar = () => {
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
                 <a className="nav-link" href="#search">
-                  <FaSearch />
+                  <FiSearch /> {/* أيقونة البحث الفارغة */}
                 </a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#wishlist">
-                  <FaHeart />
+                  <FaRegHeart /> {/* أيقونة القلب الفارغة */}
                 </a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#cart">
-                  <FaShoppingCart />
+                  <FiShoppingCart /> {/* أيقونة عربة التسوق الفارغة */}
                 </a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#profile">
-                  <FaUser />
+                  <FaRegUser /> {/* أيقونة المستخدم الفارغة */}
                 </a>
               </li>
             </ul>
