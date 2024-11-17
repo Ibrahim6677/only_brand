@@ -89,7 +89,7 @@ const TrendingNow = () => {
                 <FaShoppingCart className="icon cart-icon" />
               </div>
               <img
-                src={product.img}
+                src="/images/image 37.png"
                 alt={product.name}
                 className="product-img"
               />

@@ -5,7 +5,7 @@ import Navbar from './Navbar/Navbar';
 import Home from './Home/Home';
 import NewArrival from './NewArrival/NewArrival';
 import TrendingNow from './TrendingNew/TrendingNow';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import DetailsCart from './DetailsCart/DetailsCart';
 
 function App() {
   return (
@@ -16,6 +16,7 @@ function App() {
       <Category />
       <NewArrival/>
       <TrendingNow/>
+      <DetailsCart/>
     </div>
   );
 }
