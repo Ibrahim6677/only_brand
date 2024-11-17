@@ -53,7 +53,7 @@ exports.getall = (model) =>
     let documentscount = await model.countDocuments();
     const apiFeatures = new ApiFeature(model.find(filter), req.query)
       .filter()
-      .fields()
+      .limitFields()
       .keyword()
       .paginate(documentscount)
       .sort();

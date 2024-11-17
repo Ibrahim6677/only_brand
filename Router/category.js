@@ -6,6 +6,8 @@ const {
   getcategory,
   updatecategory,
   deletecategory,
+  UploadCategoryImage,
+  ResizeCategoryImage
 } = require("../controllers/category");
 const {
   CreatcategoryValidator,
@@ -18,13 +20,14 @@ const router = express.Router();
 const subCategoryRoute = require("./subCategoryRoute");
 
 router.use("/:categoryid/subcategories", subCategoryRoute);
+
 router
   .route("/")
-  .post(CreatcategoryValidator, creatcategory)
+  .post(UploadCategoryImage,ResizeCategoryImage,CreatcategoryValidator, creatcategory)
   .get(getcategories);
 router
   .route("/:id")
   .get(GetCategoryValidator, getcategory)
-  .put(UpdateCategoryValidator, updatecategory)
+  .put(UploadCategoryImage,UpdateCategoryValidator, updatecategory)
   .delete(DeleteCategoryValidator, deletecategory);
 module.exports = router;

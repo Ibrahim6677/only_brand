@@ -1,7 +1,5 @@
 const gloabalerror = (err, req, res, next) => {
-  // console.error(err.stack)
-  // err.statuscode = err.statuscode || 500;
-  // err.status = err.status || "fail";
+
   if (process.env.NODE_ENV === "development") {
     sendErrorForDevellopment(err, res);
   } else {

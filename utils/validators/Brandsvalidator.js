@@ -1,6 +1,8 @@
 // @des rules
 
-const { check } = require("express-validator");
+const { body,check } = require("express-validator");
+const slugify = require("slugify");
+
 const validatormiddelware = require("../../middlewares/validatormiddelware");
 
 exports.GetbrandValidator = [
@@ -10,6 +12,10 @@ exports.GetbrandValidator = [
 
 exports.UpdatebrandValidator = [
   check("id").isMongoId("").withMessage("invalid brand id format"),
+  body("name").optional().custom((value, { req }) => {
+    req.body.slug = slugify(value);
+    return true;
+  }),
   validatormiddelware,
 ];
 
@@ -25,6 +31,9 @@ exports.CreatbrandValidator = [
     .isLength({ min: 3 })
     .withMessage("Too short brand name")
     .isLength({ max: 20 })
-    .withMessage("Too long brand name"),
+    .withMessage("Too long brand name").custom((value, { req }) => {
+      req.body.slug = slugify(value);
+      return true;
+    }),
   validatormiddelware,
 ];

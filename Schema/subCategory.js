@@ -4,7 +4,6 @@ const subCategorySchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      // trim: to cancle spaces in database  ('mahmoud      ') => ('mahmoud')
       trim: true,
       unique: [true, "subcategory must be unique"],
       min: [2, "too short subcategory name"],

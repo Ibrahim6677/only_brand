@@ -7,28 +7,26 @@ class ApiFeatures {
   // methods
   filter() {
     const queryStringObj = { ...this.queryString };
-    const excludesFields = ["page", "sort", "limit", "fields","keyword"];
+    const excludesFields = ["page", "sort", "limit", "fields", "keyword"];
     excludesFields.forEach((field) => delete queryStringObj[field]);
     // Apply filtration using [gte, gt, lte, lt]
     let queryStr = JSON.stringify(queryStringObj);
     queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, (match) => `$${match}`);
 
     this.Query = this.mongooseQuery.find(JSON.parse(queryStr));
-    // return this : you can chain another method in the same object
     return this;
   }
-
   sort() {
     if (this.queryString.sort) {
-      const sortBy = this.queryString.sort.split(",").join(" ");
+      let sortBy = this.queryString.sort.split(",").join(" ");
       this.Query = this.mongooseQuery.sort(sortBy);
     } else {
-      this.Query = this.mongooseQuery.sort("-createAt");
+      this.Query = this.mongooseQuery.sort("-createdAt");
     }
     return this;
   }
 
-  fields() {
+  limitFields() {
     if (this.queryString.fields) {
       const fields = this.queryString.fields.split(",").join(" ");
       this.Query = this.mongooseQuery.select(fields);
@@ -48,13 +46,13 @@ class ApiFeatures {
     const pagination = {};
     pagination.currentPage = page;
     pagination.limit = limit;
-    // const count = await .countDocuments();
     pagination.numberOfPages = Math.ceil(countDocuments / limit);
 
     // next page
     if (endIndex < countDocuments) {
       pagination.next = page + 1;
     }
+    // previous page
     if (skip > 0) {
       pagination.prev = page - 1;
     }
@@ -66,14 +64,24 @@ class ApiFeatures {
 
   keyword() {
     if (this.queryString.keyword) {
-      let query = {};
-      query.$or = [
-        { title: { $regex: this.queryString.keyword, $options: "i" } },
-        { description: { $regex: this.queryString.keyword, $options: "i" } },
-         { name: { $regex: this.queryString.keyword, $options: "i" } },
-      ];
+      const query = {
+        $or: [
+          { title: { $regex: this.queryString.keyword, $options: "i" } },
+          { description: { $regex: this.queryString.keyword, $options: "i" } },
+          { name: { $regex: this.queryString.keyword, $options: "i" } },
+        ],
+      };
 
-      this.mongooseQuery = this.mongooseQuery.find(query);
+      this.Query = this.mongooseQuery.find(query);
+    }
+    return this;
+  }
+  sort() {
+    if (this.queryString.sort) {
+      let soortBy = this.queryString.sort.split(",").join(" ");
+      this.Query = this.mongooseQuery.sort(soortBy);
+    } else {
+      this.Query = this.mongooseQuery.sort("-createdAt");
     }
     return this;
   }

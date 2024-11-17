@@ -14,7 +14,7 @@ const TrendingNow = () => {
       description: "Grey Shoes",
       price: "780 EGP",
       delivery: "Free Delivery",
-      img: "adidas.jpg",
+      img: "/images/image 42.png",
     },
     {
       id: 2,
@@ -22,7 +22,7 @@ const TrendingNow = () => {
       description: "Oversize Jacket",
       price: "780 EGP",
       delivery: "Free Delivery",
-      img: "bershka.jpg",
+      img: "/images/image 42.png",
     },
     {
       id: 3,
@@ -30,7 +30,7 @@ const TrendingNow = () => {
       description: "Hoodie",
       price: "780 EGP",
       delivery: "Free Delivery",
-      img: "tommy.jpg",
+      img: "/images/image 42.png",
     },
     {
       id: 4,
@@ -38,7 +38,7 @@ const TrendingNow = () => {
       description: "Oversize Coat",
       price: "780 EGP",
       delivery: "Free Delivery",
-      img: "zara.jpg",
+      img: "/images/image 42.png",
     },
     {
       id: 5,
@@ -46,7 +46,7 @@ const TrendingNow = () => {
       description: "Premium Boot",
       price: "780 EGP",
       delivery: "Free Delivery",
-      img: "timberland.jpg",
+      img: "/images/image 42.png",
     },
   ];
 

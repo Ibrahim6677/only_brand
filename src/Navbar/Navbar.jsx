@@ -29,6 +29,13 @@ const Navbar = () => {
           </button>
 
           {/* Logo - وضع الشعار في المنتصف */}
+          <a className="navbar-brand mx-lg-auto" href="##">
+            <img
+              src="/public/images/logo_yet.png"
+              alt=""
+              style={{ height: "30px" }}
+            />
+          </a>
 
           {/* Navbar Content */}
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -50,20 +57,16 @@ const Navbar = () => {
                 </a>
               </li>
             </ul>
-            <li
-              style={{
-                listStyle: "none",
-                width: "100px",
-              }}
-            >
-              <img
-                className="img-home-nav"
-                src="images/logo yet.png"
-                alt="Logo"
-              />
-            </li>
-
-            {/* Icons Links */}
+            <ul>
+              <li>
+                <img
+                  className="img-home-nav"
+                  src="/images/logo yet.png"
+                  alt=""
+                />
+              </li>
+            </ul>
+            {/* Icons Links - أيقونات القائمة */}
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
                 <a className="nav-link" href="#search">

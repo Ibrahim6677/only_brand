@@ -20,7 +20,7 @@ const ProductSwiper = () => {
       description: "Relaxed Fit T-Shirt",
       price: "780 EGY",
       delivery: "Free Delivery",
-      img: "/images/image8.png",
+      img: "/images/image 8.png",
     },
     {
       id: 2,
@@ -28,7 +28,7 @@ const ProductSwiper = () => {
       description: "Hoodie",
       price: "780 EGY",
       delivery: "Free Delivery",
-      img: "/images/image8.png",
+      img: "/images/image 8.png",
     },
     {
       id: 3,
@@ -36,7 +36,7 @@ const ProductSwiper = () => {
       description: "Printed Notched Neck Longline",
       price: "780 EGY",
       delivery: "Free Delivery",
-      img: "/images/image8.png",
+      img: "/images/image 8.png",
     },
     {
       id: 4,
@@ -44,7 +44,7 @@ const ProductSwiper = () => {
       description: "Jacket With Faux Shearling",
       price: "780 EGY",
       delivery: "Free Delivery",
-      img: "/images/image8.png",
+      img: "/images/image 8.png",
     },
     {
       id: 5,
@@ -52,7 +52,7 @@ const ProductSwiper = () => {
       description: "Castalia Multi Clutch",
       price: "780 EGY",
       delivery: "Free Delivery",
-      img: "/images/image8.png",
+      img: "/images/image 8.png",
     },
   ];
 
