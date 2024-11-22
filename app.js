@@ -38,7 +38,7 @@ app.use("/api/subcategory", SubCategoryRoute);
 app.use("/api/brand", BrandsRoute);
 app.use("/api/product", ProductRoute);
 
-// creat error for route if route isn't correct
+// create error for route if route isn't correct
 app.all("*", (req, res, next) => {
   next(new ApiError(`can't found this route: ${req.originalUrl}`, 400));
 });
@@ -48,7 +48,7 @@ app.use(globalError);
 
 
 //port
-const port = process.env.port || 3000;
+const port = 3000;
 const server = app.listen(port, () => {
   console.log(`server is running on port ${port} `);
 });

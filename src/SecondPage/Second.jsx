@@ -95,8 +95,4 @@ const Second = () => {
     </div>
   );
 };
-<<<<<<< HEAD
 export default Second;
-=======
-export default Second;
->>>>>>> 74b53a8ab259fd2cc85face6074b1132c4db21bd

@@ -1,20 +1,20 @@
-// ملف MySwiper.jsx
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay } from "swiper/modules";
+import { Pagination, Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./Home.css"; // ملف CSS للتنسيقات
+
 const MySwiper = () => {
   return (
     <Swiper
       spaceBetween={0}
       slidesPerView={1}
-      pagination={{ clickable: true }} // تفعيل التابات (pagination)
-      autoplay={{ delay: 3000 }} // تغيير التأخير إلى 3 ثواني
+      pagination={{ clickable: true }}
+      autoplay={{ delay: 3000 }}
       loop
-      modules={[Pagination, Autoplay]} // حذف الـ Navigation لأنه مش هتحتاجه
+      modules={[Pagination, Autoplay]}
     >
       <SwiperSlide>
         <div className="slide-content">
@@ -67,6 +67,7 @@ const MySwiper = () => {
           </div>
         </div>
       </SwiperSlide>
+
       <SwiperSlide>
         <div className="slide-content">
           <img
