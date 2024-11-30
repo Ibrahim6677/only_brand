@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import { createBrowserRouter, createRoutesFromElements, Outlet, Route, RouterProvider } from 'react-router-dom';
-import Footer from './components/Footer';
+import Footer from './components/Footer/Footer';
 import Cart from './pages/Cart';
 import Home from './pages/Home';
 import SignIn from './pages/SignIn';
@@ -11,6 +11,7 @@ import Woman from './pages/Woman';
 import Search from './pages/Search';
 import { ProductsData } from './api/api';
 import ProductPage from './pages/ProductPage';
+import CheckOut from './pages/Check';
 
 
 const Layout = () => {
@@ -26,7 +27,7 @@ const Layout = () => {
 function App() {
 
   const router = createBrowserRouter(createRoutesFromElements(
-    <Route>
+    <>
       
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} loader={ProductsData} />
@@ -35,14 +36,14 @@ function App() {
         <Route path='/search' element={<Search />} />
         <Route path="/cart" element={<Cart />} />
         <Route path='/product/:id' element={<ProductPage />} loader={ProductsData} />
+        <Route path='/checkout' element={<CheckOut />} />
       </Route>
 
       <Route path='/sign' element={<SignIn />} />
       <Route path='/register' element={<Registration />} />
-
       
     
-    </Route>
+    </>
   ));
 
   return (

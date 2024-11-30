@@ -4,6 +4,7 @@
     "Brandreducer",
     "dbconnection",
     "errorrmiddleware",
+    "headlessui",
     "homeslide",
     "Swipers",
     "validatormiddelware"

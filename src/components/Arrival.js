@@ -1,33 +1,23 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useMediaQuery } from 'react-responsive';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import FavoriteIcon from '@mui/icons-material/Favorite'; // أيقونة القلب الملون
-import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
-import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
-import { useLoaderData } from 'react-router-dom';
-
-const items = [
-  { id: 1, brand: 'Adidas', type: 'Grey Shoes', price: '780 EGY', image: 'images/products/image 12.png' },
-  { id: 2, brand: 'Bershka', type: 'Oversize Jacket', price: '780 EGY', image: 'images/products/image 20.png' },
-  { id: 3, brand: 'Tommy Hilfiger', type: 'Hoodie', price: '780 EGY', image: 'images/products/image 21.png' },
-  { id: 4, brand: 'Zara', type: 'Oversize Coat', price: '780 EGY', image: 'images/products/image 22.png' },
-  { id: 5, brand: 'Timberland', type: 'Premium Boot', price: '780 EGY', image: 'images/products/image 23.png' },
-  { id: 6, brand: 'Nike', type: 'Running Shoes', price: '780 EGY', image: 'images/products/image 27.png' },
-  { id: 7, brand: 'Puma', type: 'Sneakers', price: '780 EGY', image: 'images/products/image 32.png' },
-];
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useMediaQuery } from "react-responsive";
+import { Link } from "react-router-dom";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteIcon from "@mui/icons-material/Favorite"; // أيقونة القلب الملون
+import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
+import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
+import { useLoaderData } from "react-router-dom";
 
 const Arrival = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  const data = useLoaderData()
-  const ProductsData = data.data
+  const data = useLoaderData();
+  const ProductsData = data.data;
 
   // إدارة حالة الأيقونات المحبوبة لكل بطاقة
   const [likedItems, setLikedItems] = useState({}); // مفتاح `id` يحمل حالة كل عنصر
 
-  const isMobile = useMediaQuery({ query: '(max-width: 640px)' });
-  const isTablet = useMediaQuery({ query: '(min-width: 641px) and (max-width: 1024px)' });
+  const isMobile = useMediaQuery({ query: "(max-width: 640px)" });
+  const isTablet = useMediaQuery({ query: "(min-width: 641px) and (max-width: 1024px)" });
   const itemsToShow = isMobile ? 2 : isTablet ? 3 : 5;
 
   const handleNext = () => {
@@ -35,15 +25,15 @@ const Arrival = () => {
   };
 
   const handlePrevious = () => {
-    setCurrentIndex((prevIndex) =>
-      (prevIndex - itemsToShow + ProductsData.length) % ProductsData.length
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - itemsToShow + ProductsData.length) % ProductsData.length
     );
   };
 
   const visibleItems = ProductsData
     .slice(currentIndex, currentIndex + itemsToShow)
     .concat(
-      items.slice(0, Math.max(0, currentIndex + itemsToShow - ProductsData.length))
+      ProductsData.slice(0, Math.max(0, currentIndex + itemsToShow - ProductsData.length))
     );
 
   // تغيير حالة الإعجاب عند النقر
@@ -65,18 +55,14 @@ const Arrival = () => {
           exit={{ opacity: 0, x: 50 }}
           transition={{ duration: 0.5 }}
           className={`grid gap-4 ${
-            isMobile
-              ? 'grid-cols-2'
-              : isTablet
-              ? 'grid-cols-3'
-              : 'grid-cols-5'
+            isMobile ? "grid-cols-2" : isTablet ? "grid-cols-3" : "grid-cols-5"
           } w-full`}
         >
-          {visibleItems.map((item, index) => (
+          {visibleItems.map((item) => (
             <motion.div
-              key={item.id + index}
+              key={item.id}
               className="p-4 rounded-md flex flex-col items-center relative"
-              style={{backgroundColor: '#E6E6E6'}}
+              style={{ backgroundColor: "#E6E6E6" }}
             >
               {/* شارة "New Arrival" */}
               <div className="absolute top-2 left-2 bg-black text-white text-xs font-bold px-2 py-1 rounded">
@@ -94,16 +80,26 @@ const Arrival = () => {
                 )}
               </div>
               {/* محتوى البطاقة */}
-              <img
-                src={item.imageCover}
-                alt={item.type}
-                className="w-full h-48 object-cover rounded-md"
-              />
-              <h3 className="font-semibold text-lg mt-2">{item.brand}</h3>
-              <p className="text-gray-500">{item.type}</p>
-              <p className="text-gray-900 font-bold">{item.price}</p>
-              <p className="text-green-500 text-sm">Free Delivery</p>
-              <p className="font-bold mt-1">GET IT <span className='bg-red-500 italic'>TOMORROW</span></p>
+              <Link
+                to={{
+                  pathname: `/product/${item.id}`,
+                }}
+                state={{ product: item }} // إرسال بيانات المنتج
+                className="flex flex-col items-center w-full"
+              >
+                <img
+                  src={item.imageCover}
+                  alt={item.type}
+                  className="w-full h-48 object-cover rounded-md"
+                />
+                <h3 className="font-semibold text-lg mt-2">{item.brand}</h3>
+                <p className="text-gray-500">{item.type}</p>
+                <p className="text-gray-900 font-bold">{item.price} EGP</p>
+                <p className="text-green-500 text-sm">Free Delivery</p>
+                <p className="font-bold mt-1">
+                  GET IT <span className="bg-red-500 italic">TOMORROW</span>
+                </p>
+              </Link>
             </motion.div>
           ))}
         </motion.div>
