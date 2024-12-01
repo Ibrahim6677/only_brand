@@ -54,8 +54,11 @@ const Recommend = () => {
   };
 
   return (
+    <>
+      <h2 className="text-2xl font-bold m-8 ">Recommended For You</h2>
     <div className="flex flex-col items-center justify-center mt-8 w-full p-4">
       {/* البطاقات */}
+      
       <AnimatePresence mode="wait">
         <motion.div
           key={currentIndex}
@@ -129,7 +132,8 @@ const Recommend = () => {
           <ArrowCircleRightIcon />
         </button>
       </div>
-    </div>
+      </div>
+      </>
   );
 };
 

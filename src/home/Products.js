@@ -15,7 +15,7 @@ const Products = () => {
       <Style />
       <h2 className="text-2xl font-bold m-8">Flash Sale</h2>
       <FlashSale />
-      <h2 className="text-2xl font-bold m-8">Recommended For You</h2>
+      
       <Recommend />
     </>
   )
