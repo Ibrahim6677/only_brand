@@ -56,7 +56,7 @@ const Cart = () => {
         {products.map((product) => (
           <div className="cart-item" key={product.id}>
             <img
-              src={product.imagePath}
+              src={product.imageCover}
               alt="Product"
               className="product-image"
             />

@@ -17,10 +17,6 @@ const ProductPage = () => {
     return <div>Product not found.</div>; // إذا لم يتم تمرير بيانات المنتج
   }
 
-  // إنشاء مسار كامل للصورة إذا كان مسار الصورة نسبيًا
-  const imagePath = process.env.REACT_APP_BASE_URL
-    ? `${process.env.REACT_APP_BASE_URL}/${product.imageCover}`
-    : product.imageCover;
 
   return (
     <>
@@ -31,7 +27,7 @@ const ProductPage = () => {
             {[...Array(4)].map((_, index) => (
               <img
                 key={index}
-                src={imagePath} // استخدام مسار الصورة
+                src={product.imageCover} // استخدام مسار الصورة
                 alt={product.name}
                 width={250}
                 className="h-40 object-cover rounded-md hover:shadow"

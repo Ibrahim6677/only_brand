@@ -5,7 +5,7 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite"; // أيقونة القلب الملون
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const Trend = () => {
   const data = useLoaderData();
@@ -67,9 +67,9 @@ const Trend = () => {
             isMobile ? "grid-cols-2" : isTablet ? "grid-cols-3" : "grid-cols-5"
           } w-full`}
         >
-          {visibleItems.map((item, index) => (
+          {visibleItems.map((item) => (
             <motion.div
-              key={item.id + index}
+              key={item.id}
               className="p-4 rounded-md flex flex-col items-center relative"
               style={{ backgroundColor: "#E6E6E6" }}
             >
@@ -84,19 +84,28 @@ const Trend = () => {
                   <FavoriteBorderIcon className="text-gray-500" />
                 )}
               </div>
-              {/* محتوى البطاقة */}
-              <img
-                src={item.imageCover}
-                alt={item.type}
-                className="w-full h-48 object-cover rounded-md"
-              />
-              <h3 className="font-semibold text-lg mt-2">{item.brand}</h3>
-              <p className="text-gray-500">{item.type}</p>
-              <p className="text-gray-900 font-bold">{item.price}</p>
-              <p className="text-green-500 text-sm">Free Delivery</p>
-              <p className="font-bold mt-1">
-                GET IT <span className="bg-red-500 italic">TOMORROW</span>
-              </p>
+
+              {/* بطاقة المنتج بالكامل كزر */}
+              <Link
+                to={{
+                  pathname: `/product/${item.id}`,
+                }}
+                state={{ product: item }} // إرسال بيانات المنتج إلى الصفحة
+                className="flex flex-col items-center w-full"
+              >
+                <img
+                  src={item.imageCover}
+                  alt={item.type}
+                  className="w-full h-48 object-cover rounded-md"
+                />
+                <h3 className="font-semibold text-lg mt-2">{item.brand}</h3>
+                <p className="text-gray-500">{item.type}</p>
+                <p className="text-gray-900 font-bold">{item.price}</p>
+                <p className="text-green-500 text-sm">Free Delivery</p>
+                <p className="font-bold mt-1">
+                  GET IT <span className="bg-red-500 italic">TOMORROW</span>
+                </p>
+              </Link>
             </motion.div>
           ))}
         </motion.div>
