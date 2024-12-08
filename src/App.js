@@ -1,15 +1,9 @@
 import React from 'react';
-
-
-
-
 import Navbar from './components/Navbar';
 import { createBrowserRouter, createRoutesFromElements, Outlet, Route, RouterProvider } from 'react-router-dom';
 import Footer from './components/Footer/Footer';
 import Cart from './pages/Cart';
 import Home from './pages/Home';
-import SignIn from './pages/SignIn';
-import Registration from './pages/Registration';
 import Men from './pages/Men';
 import Woman from './pages/Woman';
 import Search from './pages/Search';
@@ -42,10 +36,6 @@ function App() {
         <Route path='/product/:id' element={<ProductPage />} loader={ProductsData} />
         <Route path='/checkout' element={<CheckOut />} />
       </Route>
-
-      <Route path='/sign' element={<SignIn />} />
-      <Route path='/register' element={<Registration />} />
-      
     
     </>
   ));

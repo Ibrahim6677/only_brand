@@ -8,21 +8,21 @@
     z-index: 9999;
     /* تأكد من أن هذه القيمة أعلى من باقي العناصر */
 }
-.fixed {
+.form1 {
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: auto;
 }
 
-.bg-white {
+.secform {
     max-width: 800px;
     /* تأكد من وجود مساحة كافية */
     width: 90%;
     /* لجعلها تستجيب للأجهزة */
 }
 
-input {
+.form1 input {
     width: 100%;
     /* جعل الحقول تملأ العرض */
 }

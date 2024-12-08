@@ -1,11 +1,11 @@
 import React from "react";
-
+import "./Singin.css";
 const LoginSignupModal = () => {
 
     
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-gray-2000 bg-opacity-50">
-      <div className="bg-white rounded-lg shadow-lg w-[800px] p-6 flex">
+    <div className="form1 fixed inset-0 flex items-center justify-center bg-gray-2000 bg-opacity-50">
+      <div className="secform bg-white rounded-lg shadow-lg w-[800px] p-6 flex">
         {/* قسم تسجيل الدخول */}
         <div className="w-1/2 border-r pr-6">
           <h2 className="text-xl font-bold mb-4 text-center">تسجيل الدخول</h2>

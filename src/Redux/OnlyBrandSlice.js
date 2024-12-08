@@ -16,8 +16,14 @@ const OnlyBrandSlice = createSlice({
         state.products.push(action.payload);
       }
     },
+    updateCart: (state, action) => {
+      state.products = action.payload;
+    },
+    removeFromCart: (state, action) => {
+      state.products = state.products.filter((product) => product.id !== action.payload.id);
+    },
   },
 });
 
-export const { addToCart } = OnlyBrandSlice.actions;
+export const { addToCart, updateCart, removeFromCart } = OnlyBrandSlice.actions;
 export default OnlyBrandSlice.reducer;

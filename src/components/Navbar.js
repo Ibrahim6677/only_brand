@@ -5,8 +5,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import CloseIcon from '@mui/icons-material/Close';  // استيراد أيقونة Close
 import { Link } from 'react-router-dom';
-import SignIn from '../pages/SignIn'; // ../ يعني الانتقال إلى المجلد العلوي ثم إلى مجلد pages
-import "../pages/Singin.css";
+import SignIn from './SignIn'; // ../ يعني الانتقال إلى المجلد العلوي ثم إلى مجلد pages
 
 const Navbar = () => {
   const [isSignInOpen, setIsSignInOpen] = useState(false); // حالة للتحكم في النافذة
@@ -44,7 +43,7 @@ const Navbar = () => {
         <Link to="/"><img src="/images/logo/logo yet.png" width={130} alt="logo" className="cursor-pointer"/></Link>
       </div>
 
-      {/* أيقونات أخرى على الشاشات الكبيرة */}
+      {/* icon */}
       <div className="flex justify-between sm:hidden xs:hidden lg:flex md:flex space-x-6">
         <li className="lg:px-8 list-none cursor-pointer">
           <Link to="/search"><SearchIcon className="text-gray-600"/></Link>
@@ -60,33 +59,61 @@ const Navbar = () => {
         </li>
       </div>
 
-      {/* نافذة تسجيل الدخول */}
+      <div className="flex flex-col items-center p-4 space-y-4 w-full mx-auto sm:flex xs:flex md:hidden lg:hidden">
+      {/* الشريط العلوي */}
+        <div className="flex items-center justify-between w-full max-w-md">
+          {/* القائمة المنسدلة */}
+          <select className="xs-text-xs sm:w-25">
+            <option><Link to="/">New Arrival</Link></option>
+            <option><Link to="/men">Men</Link></option>
+            <option><Link to='/women'>Women</Link></option>
+          </select>
+
+          {/* الشعار */}
+          <img className='cursor-pointer sm-w-60 xs-w-20 xs:px-4' src="/images/logo/logo yet.png" width={130} alt="logo" />
+
+          {/* أيقونة المفضلة */}
+            <FavoriteBorderIcon />
+          <shoppingCartIcon />
+        </div>
+
+      {/* مربع البحث */}
+        <div className="flex items-center w-full max-w-md p-2 border border-gray-300 rounded-full bg-white">
+          <SearchIcon />
+          <input
+            type="text"
+            placeholder="Search For Only Brand"
+            className="flex-grow px-2 text-gray-700 bg-transparent focus:outline-none"
+          />
+          {/* <FaSync className="text-gray-500 mr-2 cursor-pointer" /> */}
+        </div>
+      </div>
+      {/* sign in */}
       {isSignInOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
           onClick={handleSignInClose} // يغلق النافذة عند الضغط على الخلفية
         >
           <div
-            className="bg-white p-6 rounded-lg shadow-lg w-96 relative signInModal"
+            className="secform bg-white p-6 rounded-lg shadow-lg w-96 relative signInModal"
             onClick={(e) => e.stopPropagation()} // يمنع غلق النافذة عند الضغط داخلها
           >
-            {/* زر الإغلاق باستخدام أيقونة Close */}
+            {/* button Close */}
             <button
-  onClick={handleSignInClose}
-  className="absolute top-0 right-3 text-gray-600 cursor-pointer"
-  style={{
-    padding: '0 10px',
-    borderRadius: '50%',
-    backgroundColor: 'transparent',
-    border: 'none',
-    zIndex: 1000,  // تأكيد ظهور الأيقونة فوق العناصر الأخرى
-    top: '-12rem',  // رفع الأيقونة للأعلى
-    transition: 'top 0.3s ease', // تأثير الحركة
-  }}
->
-  <CloseIcon className="text-gray-600" />
-</button>
-
+            onClick={handleSignInClose}
+            className="absolute top-0 right-3 text-gray-600 cursor-pointer"
+            style={{
+              padding: '0 10px',
+              borderRadius: '50%',
+              backgroundColor: 'transparent',
+              border: 'none',
+              zIndex: 1000, 
+              top: '-12rem',
+              transition: 'top 0.3s ease',
+            }}
+            >
+              <CloseIcon className="text-gray-600" />
+            </button>
             <SignIn />
           </div>
         </div>
