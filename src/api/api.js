@@ -7,3 +7,4 @@ export async function ProductsData() {
   axios.get(baseURL).then(response => console.log(response.data));
   return products;
 }
+  
