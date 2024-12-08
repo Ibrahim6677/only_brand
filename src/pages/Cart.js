@@ -3,10 +3,7 @@ import { FaTrash, FaHeart, FaTag, FaShoppingCart } from "react-icons/fa";
 import "./Cart.css";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-
-// إضافة action لتحديث البيانات
-import { updateCart } from "../Redux/OnlyBrandSlice";
-import { removeFromCart } from "../Redux/OnlyBrandSlice";
+import { updateCart, removeFromCart } from "../Redux/OnlyBrandSlice";
 
 const Cart = () => {
   const dispatch = useDispatch();
