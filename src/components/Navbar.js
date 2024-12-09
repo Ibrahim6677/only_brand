@@ -87,7 +87,8 @@ const Navbar = () => {
   <CloseIcon className="text-gray-600" />
 </button>
 
-            <SignIn />
+          
+
           </div>
         </div>
       )}
