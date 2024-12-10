@@ -5,8 +5,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import CloseIcon from '@mui/icons-material/Close';  // استيراد أيقونة Close
 import { Link } from 'react-router-dom';
-import SignIn from './SignIn'; // ../ يعني الانتقال إلى المجلد العلوي ثم إلى مجلد pages
-
+import Regester from "./Regester"
 const Navbar = () => {
   const [isSignInOpen, setIsSignInOpen] = useState(false); // حالة للتحكم في النافذة
 
@@ -114,7 +113,7 @@ const Navbar = () => {
             >
               <CloseIcon className="text-gray-600" />
             </button>
-            <SignIn />
+            <Regester/>
           </div>
         </div>
       )}
