@@ -3,7 +3,7 @@ import TextField from "@mui/material/TextField";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Button from "@mui/material/Button";
-import "./Regester.css"; // إضافة ملف CSS مخصص
+import "./LoginSignupModal.css"; // إضافة ملف CSS مخصص
 
 const LoginSignupModal = () => {
   const [isRegistering, setIsRegistering] = useState(false);
@@ -13,13 +13,14 @@ const LoginSignupModal = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-[80vh] bg-gray-200">
-<div className="bg-white shadow-lg rounded-lg px-4 sm:px-8 py-8 w-full custom-width">
+    <div className="flex items-center justify-center">
+      <div className="bg-white shadow-lg rounded-lg px-4 sm:px-8 py-8 w-full ">
         <div className="flex justify-center mb-6">
           <img
             src="/images/logo/logo yet.png"
             alt="Logo"
-            className="h-16 w-16"
+            width={120}
+            className=""
           />
         </div>
 

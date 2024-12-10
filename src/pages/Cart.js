@@ -129,10 +129,12 @@ const Cart = () => {
               </span>
             </p>
           </div>
-          <button className="checkout-button">
-            <FaShoppingCart />
-            CHECKOUT
-          </button>
+          <Link to="/checkout">
+            <button className="checkout-button">
+              <FaShoppingCart />
+              CHECKOUT
+            </button>
+          </Link>
         </div>
       </div>
     </div>

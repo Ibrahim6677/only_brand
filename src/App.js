@@ -10,7 +10,7 @@ import Search from './pages/Search';
 import { ProductsData } from './api/api';
 import ProductPage from './pages/ProductPage';
 import CheckOut from './pages/Check';
-import Regester from "./components/Regester"
+import LoginSignupModal from './components/LoginSignupModal';
 
 
 const Layout = () => {
@@ -36,7 +36,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path='/product/:id' element={<ProductPage />} loader={ProductsData} />
         <Route path='/checkout' element={<CheckOut />} />
-        <Route path='/Regester' element={<Regester />} />
+        <Route path='/Regester' element={<LoginSignupModal />} />
       </Route>
     
     </>

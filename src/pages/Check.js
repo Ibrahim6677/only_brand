@@ -6,13 +6,16 @@ import {
   FaStore,
   FaWallet,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const CheckOut = () => {
   return (
     <div style={styles.checkoutContainer}>
       {/* Header */}
       <header style={styles.header}>
-        <button style={styles.backButton}>&larr;</button>
+        <Link to="/cart">
+          <button style={styles.backButton}>&larr;</button>
+        </Link>
         <h1 style={styles.title}>Secure Checkout</h1>
         <h2 style={styles.brand}>ONLY BRAND</h2>
       </header>
@@ -223,12 +226,10 @@ const styles = {
       marginTop: "20px",
     },
     summaryItem: {
-      flexDirection: "column", // ترتيب العناصر عموديًا في الشاشات الصغيرة
-      textAlign: "center", // توسيط النصوص
+      flexDirection: "column",
+      textAlign: "center",
     },
   },
 };
-
-
 
 export default CheckOut;
