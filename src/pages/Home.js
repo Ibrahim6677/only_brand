@@ -3,6 +3,7 @@ import Products from '../home/Products'
 import Swipers from '../home/Swiper'
 import Brands from '../components/Brands'
 import Category from '../components/Category'
+import FavoretPag from './FavoretPag'
 
 const Home = () => {
   return (

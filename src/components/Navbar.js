@@ -6,6 +6,8 @@ import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import CloseIcon from '@mui/icons-material/Close';  // استيراد أيقونة Close
 import { Link } from 'react-router-dom';
 import Regester from "./LoginSignupModal"
+import FavoretPag from "../pages/FavoretPag"
+
 const Navbar = () => {
   const [isSignInOpen, setIsSignInOpen] = useState(false); // حالة للتحكم في النافذة
 
@@ -47,8 +49,10 @@ const Navbar = () => {
         <li className="lg:px-8 list-none cursor-pointer">
           <Link to="/search"><SearchIcon className="text-gray-600"/></Link>
         </li>
-        <li className="lg:px-8 list-none cursor-pointer">
-          <FavoriteBorderIcon className="text-gray-600"/>
+            <li className="lg:px-8 list-none cursor-pointer">
+             <Link to={"/FavoretPag"}>  
+       <FavoriteBorderIcon className="text-gray-600"/>
+        </Link>
         </li>
         <li className="lg:px-8 list-none cursor-pointer">
           <Link to="/cart"><ShoppingCartIcon className="text-gray-600"/></Link>

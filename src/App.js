@@ -11,7 +11,7 @@ import { ProductsData } from './api/api';
 import ProductPage from './pages/ProductPage';
 import CheckOut from './pages/Check';
 import LoginSignupModal from './components/LoginSignupModal';
-
+import FavoretPag from './pages/FavoretPag';
 
 const Layout = () => {
   return (
@@ -37,6 +37,7 @@ function App() {
         <Route path='/product/:id' element={<ProductPage />} loader={ProductsData} />
         <Route path='/checkout' element={<CheckOut />} />
         <Route path='/Regester' element={<LoginSignupModal />} />
+        <Route path='/FavoretPag' element={<FavoretPag />} />
       </Route>
     
     </>
