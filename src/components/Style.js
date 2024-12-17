@@ -74,13 +74,13 @@ const Style = () => {
           <div className="flex justify-between items-center mt-6 w-full">
             <button
               onClick={handlePrevious}
-              className="text-white bg-gray-800 hover:bg-gray-900 py-2 px-4 rounded-full transition duration-300"
+              className="text-white bg-gray-800 py-2 px-4 rounded-full transition duration-300"
             >
               <ArrowCircleLeftIcon />
             </button>
             <button
               onClick={handleNext}
-              className="text-white bg-gray-800 hover:bg-gray-900 py-2 px-4 rounded-full transition duration-300"
+              className="text-white bg-gray-800 py-2 px-4 rounded-full transition duration-300"
             >
               <ArrowCircleRightIcon />
             </button>

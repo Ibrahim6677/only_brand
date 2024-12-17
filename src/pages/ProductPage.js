@@ -14,7 +14,7 @@ const ProductPage = () => {
   const dispatch = useDispatch();
 
   if (!product) {
-    return <div>Product not found.</div>; // إذا لم يتم تمرير بيانات المنتج
+    return <div>Product not found.</div>;
   }
 
 
@@ -27,7 +27,7 @@ const ProductPage = () => {
             {[...Array(4)].map((_, index) => (
               <img
                 key={index}
-                src={product.imageCover} // استخدام مسار الصورة
+                src={product.imageCover}
                 alt={product.name}
                 width={250}
                 className="h-40 object-cover rounded-md hover:shadow"

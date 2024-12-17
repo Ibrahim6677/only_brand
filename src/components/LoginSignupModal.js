@@ -85,7 +85,7 @@ const LoginSignupModal = () => {
             type="submit"
             variant="contained"
             color={isRegistering ? "success" : "primary"}
-            className="text-lg font-medium"
+            className="btn-log text-lg font-medium"
           >
             {isRegistering ? "تسجيل الحساب" : "تسجيل الدخول"}
           </Button>

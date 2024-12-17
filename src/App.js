@@ -11,7 +11,7 @@ import { ProductsData } from './api/api';
 import ProductPage from './pages/ProductPage';
 import CheckOut from './pages/Check';
 import LoginSignupModal from './components/LoginSignupModal';
-import FavoretPag from './pages/FavoretPag';
+import FavoritePage from './pages/FavoritePage';
 
 const Layout = () => {
   return (
@@ -30,14 +30,14 @@ function App() {
       
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} loader={ProductsData} />
-        <Route path='/men' element={<Men />} />
-        <Route path='/Women' element={<Woman />} />
+        <Route path='/men' element={<Men />} loader={ProductsData} />
+        <Route path='/Women' element={<Woman />} loader={ProductsData} />
         <Route path='/search' element={<Search />} />
         <Route path="/cart" element={<Cart />} />
         <Route path='/product/:id' element={<ProductPage />} loader={ProductsData} />
         <Route path='/checkout' element={<CheckOut />} />
-        <Route path='/Regester' element={<LoginSignupModal />} />
-        <Route path='/FavoretPag' element={<FavoretPag />} />
+        <Route path='/Register' element={<LoginSignupModal />} />
+        <Route path='/FavoritePage' element={<FavoritePage />} />
       </Route>
     
     </>

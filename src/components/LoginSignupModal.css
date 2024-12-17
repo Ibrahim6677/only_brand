@@ -25,11 +25,11 @@
     /* لضمان ملاءمة العرض للشاشات الصغيرة */
 }
 /* تأثير للزر */
-button {
+.btn-log  {
     transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
-button:hover {
+.btn-log:hover {
     transform: scale(1.02);
     /* تكبير بسيط عند التمرير */
     background-color: #e6e6e62b;

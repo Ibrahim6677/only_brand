@@ -14,7 +14,9 @@
     "ratingsAverage": 4.3,
     "ratingsQuantity": 20,
     "brand": "Zara",
-    "type": "Sneakers"
+    "type": "Sneakers",
+    "kind":"men",
+    "section": "Trend"
   },
   {
     "id": 2,
@@ -31,7 +33,9 @@
     "ratingsAverage": 4.4,
     "ratingsQuantity": 23,
     "brand": "Pull&Bear",
-    "type": "Running Shoes"
+    "type": "Running Shoes",
+    "kind": "men",
+    "section": "Trend"
   },
   {
     "id": 3,
@@ -47,7 +51,9 @@
     "ratingsAverage": 4.0,
     "ratingsQuantity": 70,
     "brand": "Pull&Bear",
-    "type": "Black Shoes"
+    "type": "Black Shoes",
+    "kind": "men",
+    "section": "Trend"
   },
   {
     "id": 4,
@@ -63,7 +69,9 @@
     "ratingsAverage": 4.9,
     "ratingsQuantity": 98,
     "brand": "Zara",
-    "type": "Black Shoes"
+    "type": "Black Shoes",
+    "kind": "men",
+    "section": "Trend"
   },
   {
     "id": 5,
@@ -79,7 +87,9 @@
     "ratingsAverage": 4.4,
     "ratingsQuantity": 12,
     "brand": "Zara",
-    "type": "Premium Boot"
+    "type": "Premium Boot",
+    "kind": "men, women",
+    "section": "Trend"
   },
   {
     "id": 6,
@@ -95,7 +105,9 @@
     "ratingsAverage": 3.1,
     "ratingsQuantity": 66,
     "brand": "Zara",
-    "type": "Oversize Coat"
+    "type": "Oversize Coat",
+    "kind": "men, women",
+    "section": "Trend"
   },
   {
     "id": 7,
@@ -111,7 +123,9 @@
     "ratingsAverage": 2.8,
     "ratingsQuantity": 76,
     "brand": "Pull&Bear",
-    "type": "Hoodie"
+    "type": "Hoodie",
+    "kind": "men, women",
+    "section": "Trend"
   },
   {
     "id": 8,
@@ -127,7 +141,9 @@
     "ratingsAverage": 4.3,
     "ratingsQuantity": 20,
     "brand": "Zara",
-    "type": "Black Shoes"
+    "type": "Black Shoes",
+    "kind":"men",
+    "section": "Trend"
   },
   {
     "id": 9,
@@ -143,7 +159,9 @@
     "ratingsAverage": 4.8,
     "ratingsQuantity": 42,
     "brand": "Pull&Bear",
-    "type": "Oversize Jacket"
+    "type": "Oversize Jacket",
+    "kind":"men",
+    "section": "Trend"
   },
   {
     "id": 10,
@@ -159,6 +177,116 @@
     "ratingsAverage": 1.6,
     "ratingsQuantity": 5,
     "brand": "Zara",
-    "type": "Grey Shoes"
+    "type": "Grey Shoes",
+    "kind":"women",
+    "section": "Trend"
+  },
+  {
+    "id": 11,
+    "name": "Pull&Bear",
+    "title": "SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s",
+    "slug": "sandisk-ssd-plus-1tb-internal-ssd-sata-iii-6-gbs",
+    "quantity": 104,
+    "sold": 9,
+    "price": 109,
+    "description": "Easy upgrade for faster boot up, shutdown, application load and response (As compared to 5400 RPM SATA 2.5” hard drive; Based on published specifications and internal benchmarking tests using PCMark vantage scores) Boosts burst write performance, making it ideal for typical PC workloads The perfect balance of performance and reliability Read/write speeds of up to 535MB/s/450MB/s (Based on internal testing; Performance may vary depending upon drive capacity, host device, OS and application.)",
+    "category": "61b2a8dd4bad61f4cc4a98ea",
+    "imageCover": "/images/products/image 42.png",
+    "ratingsAverage": 1.6,
+    "ratingsQuantity": 5,
+    "brand": "Zara",
+    "type": "Grey Shoes",
+    "kind":"women",
+    "section": "Trend"
+  },
+  {
+    "id": 12,
+    "name": "Pull&Bear",
+    "title": "SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s",
+    "slug": "sandisk-ssd-plus-1tb-internal-ssd-sata-iii-6-gbs",
+    "quantity": 104,
+    "sold": 9,
+    "price": 109,
+    "description": "Easy upgrade for faster boot up, shutdown, application load and response (As compared to 5400 RPM SATA 2.5” hard drive; Based on published specifications and internal benchmarking tests using PCMark vantage scores) Boosts burst write performance, making it ideal for typical PC workloads The perfect balance of performance and reliability Read/write speeds of up to 535MB/s/450MB/s (Based on internal testing; Performance may vary depending upon drive capacity, host device, OS and application.)",
+    "category": "61b2a8dd4bad61f4cc4a98ea",
+    "imageCover": "/images/products/image 46.png",
+    "ratingsAverage": 1.6,
+    "ratingsQuantity": 5,
+    "brand": "Zara",
+    "type": "Grey Shoes",
+    "kind":"women",
+    "section": "Trend"
+  },
+  {
+    "id": 13,
+    "name": "Pull&Bear",
+    "title": "SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s",
+    "slug": "sandisk-ssd-plus-1tb-internal-ssd-sata-iii-6-gbs",
+    "quantity": 104,
+    "sold": 9,
+    "price": 109,
+    "description": "Easy upgrade for faster boot up, shutdown, application load and response (As compared to 5400 RPM SATA 2.5” hard drive; Based on published specifications and internal benchmarking tests using PCMark vantage scores) Boosts burst write performance, making it ideal for typical PC workloads The perfect balance of performance and reliability Read/write speeds of up to 535MB/s/450MB/s (Based on internal testing; Performance may vary depending upon drive capacity, host device, OS and application.)",
+    "category": "61b2a8dd4bad61f4cc4a98ea",
+    "imageCover": "/images/products/image 72.png",
+    "ratingsAverage": 1.6,
+    "ratingsQuantity": 5,
+    "brand": "Zara",
+    "type": "Grey Shoes",
+    "kind":"women",
+    "section": "Trend"
+  },
+  {
+    "id": 14,
+    "name": "Pull&Bear",
+    "title": "SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s",
+    "slug": "sandisk-ssd-plus-1tb-internal-ssd-sata-iii-6-gbs",
+    "quantity": 104,
+    "sold": 9,
+    "price": 109,
+    "description": "Easy upgrade for faster boot up, shutdown, application load and response (As compared to 5400 RPM SATA 2.5” hard drive; Based on published specifications and internal benchmarking tests using PCMark vantage scores) Boosts burst write performance, making it ideal for typical PC workloads The perfect balance of performance and reliability Read/write speeds of up to 535MB/s/450MB/s (Based on internal testing; Performance may vary depending upon drive capacity, host device, OS and application.)",
+    "category": "61b2a8dd4bad61f4cc4a98ea",
+    "imageCover": "/images/products/image 39.png",
+    "ratingsAverage": 1.6,
+    "ratingsQuantity": 5,
+    "brand": "Zara",
+    "type": "Grey Shoes",
+    "kind":"women",
+    "section": "Trend"
+  },
+  {
+    "id": 15,
+    "name": "Pull&Bear",
+    "title": "SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s",
+    "slug": "sandisk-ssd-plus-1tb-internal-ssd-sata-iii-6-gbs",
+    "quantity": 104,
+    "sold": 9,
+    "price": 109,
+    "description": "Easy upgrade for faster boot up, shutdown, application load and response (As compared to 5400 RPM SATA 2.5” hard drive; Based on published specifications and internal benchmarking tests using PCMark vantage scores) Boosts burst write performance, making it ideal for typical PC workloads The perfect balance of performance and reliability Read/write speeds of up to 535MB/s/450MB/s (Based on internal testing; Performance may vary depending upon drive capacity, host device, OS and application.)",
+    "category": "61b2a8dd4bad61f4cc4a98ea",
+    "imageCover": "/images/products/image 50.png",
+    "ratingsAverage": 1.6,
+    "ratingsQuantity": 5,
+    "brand": "Zara",
+    "type": "Grey Shoes",
+    "kind":"women",
+    "section": "Trend"
+  },
+  {
+    "id": 16,
+    "name": "Pull&Bear",
+    "title": "SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s",
+    "slug": "sandisk-ssd-plus-1tb-internal-ssd-sata-iii-6-gbs",
+    "quantity": 104,
+    "sold": 9,
+    "price": 109,
+    "description": "Easy upgrade for faster boot up, shutdown, application load and response (As compared to 5400 RPM SATA 2.5” hard drive; Based on published specifications and internal benchmarking tests using PCMark vantage scores) Boosts burst write performance, making it ideal for typical PC workloads The perfect balance of performance and reliability Read/write speeds of up to 535MB/s/450MB/s (Based on internal testing; Performance may vary depending upon drive capacity, host device, OS and application.)",
+    "category": "61b2a8dd4bad61f4cc4a98ea",
+    "imageCover": "/images/products/image 41.png",
+    "ratingsAverage": 1.6,
+    "ratingsQuantity": 5,
+    "brand": "Zara",
+    "type": "Grey Shoes",
+    "kind":"women",
+    "section": "Trend"
   }
 ]
