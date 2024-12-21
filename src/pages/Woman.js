@@ -6,20 +6,20 @@ const Woman = () => {
   const data = useLoaderData();
     const ProductsData = data.data;
   
-    // فلترة المنتجات للنوع "رجالي" فقط
-    const menProducts = ProductsData.filter(product => product.kind === 'women');
+    // فلترة المنتجات للنوع "نسائي" فقط
+    const womenProducts = ProductsData.filter(product => product.kind === 'women');
   
     return (
       <>
-        {/* عرض المنتجات فقط إذا كان هناك منتجات رجالية */}
-        {menProducts.length > 0 && (
+        {/* عرض المنتجات فقط إذا كان هناك منتجات نسائيه */}
+        {womenProducts.length > 0 && (
           <>
-            {menProducts.map(product => (
+            {womenProducts.map(product => (
               <div key={product.id} product={product} >
                 <h2>{product.name}</h2>
                 <p>{product.price}</p>
                 <img src={product.imageCover} width={150} alt={product.name} />
-                
+                <h3>{ product.title }</h3>
               </div>
             ))}
           </>

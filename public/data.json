@@ -16,7 +16,8 @@
     "brand": "Zara",
     "type": "Sneakers",
     "kind":"men",
-    "section": "Trend"
+    "section": "Trend",
+    "isNewArrival": "true"
   },
   {
     "id": 2,
@@ -35,7 +36,8 @@
     "brand": "Pull&Bear",
     "type": "Running Shoes",
     "kind": "men",
-    "section": "Trend"
+    "section": "Trend",
+    "isNewArrival": "true"
   },
   {
     "id": 3,
@@ -53,7 +55,8 @@
     "brand": "Pull&Bear",
     "type": "Black Shoes",
     "kind": "men",
-    "section": "Trend"
+    "section": "Trend",
+    "isNewArrival": "true"
   },
   {
     "id": 4,
@@ -71,7 +74,8 @@
     "brand": "Zara",
     "type": "Black Shoes",
     "kind": "men",
-    "section": "Trend"
+    "section": "Trend",
+    "isNewArrival": "true"
   },
   {
     "id": 5,
@@ -89,7 +93,8 @@
     "brand": "Zara",
     "type": "Premium Boot",
     "kind": "men, women",
-    "section": "Trend"
+    "section": "Trend",
+    "isNewArrival": "true"
   },
   {
     "id": 6,
@@ -107,7 +112,8 @@
     "brand": "Zara",
     "type": "Oversize Coat",
     "kind": "men, women",
-    "section": "Trend"
+    "section": "Trend",
+    "isNewArrival": "true"
   },
   {
     "id": 7,
@@ -125,7 +131,8 @@
     "brand": "Pull&Bear",
     "type": "Hoodie",
     "kind": "men, women",
-    "section": "Trend"
+    "section": "Trend",
+    "isSale": "true"
   },
   {
     "id": 8,
@@ -143,7 +150,8 @@
     "brand": "Zara",
     "type": "Black Shoes",
     "kind":"men",
-    "section": "Trend"
+    "section": "Trend",
+    "isSale": "true"
   },
   {
     "id": 9,
@@ -161,7 +169,8 @@
     "brand": "Pull&Bear",
     "type": "Oversize Jacket",
     "kind":"men",
-    "section": "Trend"
+    "section": "Trend",
+    "isSale": "true"
   },
   {
     "id": 10,
@@ -179,7 +188,8 @@
     "brand": "Zara",
     "type": "Grey Shoes",
     "kind":"women",
-    "section": "Trend"
+    "section": "Trend",
+    "isSale": "true"
   },
   {
     "id": 11,
@@ -197,7 +207,8 @@
     "brand": "Zara",
     "type": "Grey Shoes",
     "kind":"women",
-    "section": "Trend"
+    "section": "Trend",
+    "isSale": "true"
   },
   {
     "id": 12,
@@ -215,7 +226,8 @@
     "brand": "Zara",
     "type": "Grey Shoes",
     "kind":"women",
-    "section": "Trend"
+    "section": "Trend",
+    "isSale": "true"
   },
   {
     "id": 13,
@@ -233,7 +245,8 @@
     "brand": "Zara",
     "type": "Grey Shoes",
     "kind":"women",
-    "section": "Trend"
+    "section": "Trend",
+    "isSale": "true"
   },
   {
     "id": 14,
@@ -251,7 +264,8 @@
     "brand": "Zara",
     "type": "Grey Shoes",
     "kind":"women",
-    "section": "Trend"
+    "section": "Trend",
+    "isNewArrival": "true"
   },
   {
     "id": 15,
@@ -269,7 +283,8 @@
     "brand": "Zara",
     "type": "Grey Shoes",
     "kind":"women",
-    "section": "Trend"
+    "section": "Trend",
+    "isNewArrival": "true"
   },
   {
     "id": 16,
@@ -287,6 +302,7 @@
     "brand": "Zara",
     "type": "Grey Shoes",
     "kind":"women",
-    "section": "Trend"
+    "section": "Trend",
+    "isSale": "true"
   }
 ]

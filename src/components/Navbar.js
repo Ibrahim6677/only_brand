@@ -74,7 +74,7 @@ const Navbar = () => {
           </Link>
         </li>
         <li className="lg:px-8 list-none cursor-pointer">
-          <Link to={"/FavoritePage"}>
+          <Link to="/FavoritePage">
             <FavoriteBorderIcon className="text-gray-600" />
           </Link>
         </li>
@@ -128,7 +128,6 @@ const Navbar = () => {
             placeholder="Search For Only Brand"
             className="flex-grow px-2 text-gray-700 bg-transparent focus:outline-none"
           />
-          {/* <FaSync className="text-gray-500 mr-2 cursor-pointer" /> */}
         </div>
       </div>
       {/* sign in */}

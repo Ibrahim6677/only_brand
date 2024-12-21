@@ -86,7 +86,10 @@ h2 {
   align-items: center;
   gap: 5px;
 }
-
+.remove-button:hover,
+.wishlist-button:hover {
+  color: red;
+}
 .pieces-select {
   padding: 5px;
   font-size: 0.9rem;

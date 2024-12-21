@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useMediaQuery } from "react-responsive";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
@@ -6,10 +6,13 @@ import FavoriteIcon from "@mui/icons-material/Favorite"; // أيقونة الق�
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
 import { Link, useLoaderData } from "react-router-dom";
+import { addToWishlist } from "../Redux/OnlyBrandSlice";
+import { useDispatch } from "react-redux";
 
 const Trend = () => {
   const data = useLoaderData();
   const ProductsData = data.data;
+  const dispatch = useDispatch();
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -47,11 +50,25 @@ const Trend = () => {
 
   // تغيير حالة الإعجاب عند النقر
   const toggleLike = (id) => {
-    setLikedItems((prevLikedItems) => ({
-      ...prevLikedItems,
-      [id]: !prevLikedItems[id],
-    }));
+    setLikedItems((prevLikedItems) => {
+      const updatedLikedItems = {
+        ...prevLikedItems,
+        [id]: !prevLikedItems[id],
+      };
+  
+      // تحديث البيانات في localStorage
+      localStorage.setItem("likedItems", JSON.stringify(updatedLikedItems));
+  
+      return updatedLikedItems;
+    });
   };
+  
+  // عند تحميل الصفحة، استرجاع الحالة من localStorage
+  useEffect(() => {
+    const storedLikedItems = JSON.parse(localStorage.getItem("likedItems")) || {};
+    setLikedItems(storedLikedItems);
+  }, []);
+  
 
   return (
     <>
@@ -78,7 +95,20 @@ const Trend = () => {
               {/* أيقونة القلب */}
               <div
                 className="absolute top-2 right-2 cursor-pointer"
-                onClick={() => toggleLike(item.id)}
+                onClick={() => {
+                  toggleLike(item.id);
+                  dispatch(addToWishlist(
+                    {
+                      id: item.id,
+                      name: item.name,
+                      description: item.description,
+                      brand: item.brand,
+                      title: item.title,
+                      price: item.price,
+                      imageCover: item.imageCover,
+                    },
+                  ));
+                }}
               >
                 {likedItems[item.id] ? (
                   <FavoriteIcon className="text-red-500" />

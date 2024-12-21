@@ -5,7 +5,7 @@ import ShareIcon from "@mui/icons-material/Share";
 import { useLocation } from "react-router-dom";
 import Recommend from "../components/Recommend";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../Redux/OnlyBrandSlice";
+import { addToCart, addToWishlist } from "../Redux/OnlyBrandSlice";
 
 const ProductPage = () => {
   const location = useLocation();
@@ -16,7 +16,6 @@ const ProductPage = () => {
   if (!product) {
     return <div>Product not found.</div>;
   }
-
 
   return (
     <>
@@ -102,6 +101,17 @@ const ProductPage = () => {
               startIcon={<FavoriteBorderIcon />}
               className="w-full"
               style={{ textTransform: "none" }}
+              onClick={() =>
+                dispatch(
+                  addToWishlist({
+                    id: product.id,
+                    brand: product.brand,
+                    title: product.title,
+                    price: product.price,
+                    imageCover: product.imageCover,
+                  })
+                )
+              }
             >
               Add to Wishlist
             </Button>
@@ -110,16 +120,21 @@ const ProductPage = () => {
           {/* Tabs */}
           <div className="mt-8">
             <details className="mb-4">
-              <summary className="font-medium cursor-pointer">Product Details</summary>
+              <summary className="font-medium cursor-pointer">
+                Product Details
+              </summary>
               <p className="text-gray-600 mt-2">
                 {product.details ||
                   "High-quality relaxed fit t-shirt made from premium cotton."}
               </p>
             </details>
             <details>
-              <summary className="font-medium cursor-pointer">Delivery and Returns</summary>
+              <summary className="font-medium cursor-pointer">
+                Delivery and Returns
+              </summary>
               <p className="text-gray-600 mt-2">
-                Fast delivery within 1-2 business days. Free returns within 30 days.
+                Fast delivery within 1-2 business days. Free returns within 30
+                days.
               </p>
             </details>
           </div>
