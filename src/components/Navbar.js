@@ -110,11 +110,13 @@ const Navbar = () => {
             <option value="/men">Men</option>
             <option value="/women">Women</option>
           </select>
-          <img
-            className="cursor-pointer w-20 sm:w-24 xs:w-20 absolute top-4 left-44"
-            src="/images/logo/logo yet.png"
-            alt="logo"
-          />
+          <Link to="/">
+            <img
+              className="cursor-pointer w-20 sm:w-24 xs:w-20 absolute top-4 left-44"
+              src="/images/logo/logo yet.png"
+              alt="logo"
+            />
+          </Link>
           <Link to="/FavoritePage">
             <FavoriteBorderIcon className="text-gray-500 absolute top-5 right-10" />
           </Link>
