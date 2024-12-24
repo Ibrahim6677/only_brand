@@ -27,11 +27,11 @@ const OnlyBrandSlice = createSlice({
     },
 
     // Remove a product from the cart
-    removeFromCart: (state, action) => {
-      state.products = state.products.filter(
-        (product) => product.id !== action.payload
-      );
-    },
+    // removeFromCart: (state, action) => {
+    //   state.products = state.products.filter(
+    //     (product) => product.id !== action.payload
+    //   );
+    // },
 
     // Add a product to the wishlist
     addToWishlist: (state, action) => {
@@ -44,11 +44,11 @@ const OnlyBrandSlice = createSlice({
     },
 
     // Remove a product from the wishlist
-    // removeFromWishlist: (state, action) => {
-    //   state.favoriteproducts = state.favoriteproducts.filter(
-    //     (product) => product.id !== action.payload
-    //   );
-    // },
+    removeFromWishlist: (state, action) => {
+      state.favoriteproducts = state.favoriteproducts.filter(
+        (product) => product.id !== action.payload
+      );
+    },
 
     // Update the wishlist with a new list of products
     updateWithWishlist: (state, action) => {
