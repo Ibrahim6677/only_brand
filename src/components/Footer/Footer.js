@@ -1,27 +1,38 @@
 import React from "react";
-import "./Footer.css";
 import { FaFacebookF, FaTelegramPlane, FaInstagram } from "react-icons/fa"; // استيراد الأيقونات
 import { Link } from "react-router-dom";
-
+import "./Footer.css";
 const Footer = () => {
   return (
-    <footer className="footer">
-      <div className="footer-content">
-        <div className="footer-section logo-section">
-          <img className="footer-logo" src="/images/logo/logo white.png" alt="Logo" />
+    <footer
+      className="lg:block md:block p-5 sm:hidden xs:hidden">
+      <div className="max-w-screen-xl mx-auto flex flex-wrap justify-between space-y-6 lg:space-y-0 p-8 relative z-10">
+        <div className="flex flex-col items-center sm:items-start">
+          <img
+            className="max-w-full h-auto mb-4 w-40"
+            src="/images/logo/logo white.png"
+            alt="Logo"
+          />
         </div>
 
-        <div className="footer-section">
-          <h4>SHOP</h4>
-          <ul>
-            <li><Link to="/">New Arrival</Link></li>
-            <li><Link to="/men">Men</Link></li>
-            <li><Link to="/Women">Woman</Link></li>
+        <div className="flex flex-col items-center sm:items-start">
+          <h4 className="text-xl font-bold mb-3">SHOP</h4>
+          <ul className="space-y-3">
+            <li>
+              <Link to="/">New Arrival</Link>
+            </li>
+            <li>
+              <Link to="/men">Men</Link>
+            </li>
+            <li>
+              <Link to="/Women">Woman</Link>
+            </li>
           </ul>
         </div>
-        <div className="footer-section">
-          <h4>TOP BRANDS</h4>
-          <ul>
+
+        <div className="flex flex-col items-center sm:items-start">
+          <h4 className="text-xl font-bold mb-3">TOP BRANDS</h4>
+          <ul className="space-y-3">
             <li>Zara</li>
             <li>North Face</li>
             <li>Calvin Klein</li>
@@ -30,9 +41,10 @@ const Footer = () => {
             <li>All Brands</li>
           </ul>
         </div>
-        <div className="footer-section">
-          <h4>TOP CATEGORIES</h4>
-          <ul>
+
+        <div className="flex flex-col items-center sm:items-start">
+          <h4 className="text-xl font-bold mb-3">TOP CATEGORIES</h4>
+          <ul className="space-y-3">
             <li>Men's Clothing</li>
             <li>Men's Shoes</li>
             <li>Women's Clothing</li>
@@ -40,9 +52,10 @@ const Footer = () => {
             <li>Accessories</li>
           </ul>
         </div>
-        <div className="footer-section">
-          <h4>CUSTOMER SERVICE</h4>
-          <ul>
+
+        <div className="flex flex-col items-center sm:items-start">
+          <h4 className="text-xl font-bold mb-3">CUSTOMER SERVICE</h4>
+          <ul className="space-y-3">
             <li>Order Tracking</li>
             <li>Order Returns</li>
             <li>FAQs</li>
@@ -50,16 +63,32 @@ const Footer = () => {
             <li>Location</li>
           </ul>
         </div>
-        <div className="footer-section">
-          <h4>FOLLOW US</h4>
-          <div className="social-icons">
-            <a href="https://www.facebook.com" className="social-icon" target="_blank" rel="noopener noreferrer">
+
+        <div className="flex flex-col items-center sm:items-start">
+          <h4 className="text-xl font-bold mb-3">FOLLOW US</h4>
+          <div className="flex gap-4 mt-4">
+            <a
+              href="https://www.facebook.com"
+              className="flex items-center justify-center w-10 h-10 bg-gray-700 rounded-full text-white text-2xl hover:bg-white hover:text-black transition duration-300"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FaFacebookF />
             </a>
-            <a href="https://www.telegram.com" className="social-icon" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.telegram.com"
+              className="flex items-center justify-center w-10 h-10 bg-gray-700 rounded-full text-white text-2xl hover:bg-white hover:text-black transition duration-300"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FaTelegramPlane />
             </a>
-            <a href="https://www.instagram.com" className="social-icon" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.instagram.com"
+              className="flex items-center justify-center w-10 h-10 bg-gray-700 rounded-full text-white text-2xl hover:bg-white hover:text-black transition duration-300"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FaInstagram />
             </a>
           </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useMediaQuery } from "react-responsive";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
@@ -53,22 +53,10 @@ const FlashSale = () => {
       const updatedLikedItems = {
         ...prevLikedItems,
         [id]: !prevLikedItems[id],
-      };
-  
-      // تحديث البيانات في localStorage
-      localStorage.setItem("likedItems", JSON.stringify(updatedLikedItems));
-  
+      };  
       return updatedLikedItems;
     });
   };
-  
-  // عند تحميل الصفحة، استرجاع الحالة من localStorage
-  useEffect(() => {
-    const storedLikedItems = JSON.parse(localStorage.getItem("likedItems")) || {};
-    setLikedItems(storedLikedItems);
-  }, []);
-  
-
   return (
     <>
       <h2 className="text-2xl font-bold m-8">Flash Sale</h2>

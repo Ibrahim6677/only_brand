@@ -3,32 +3,22 @@ import { FaTrash, FaHeart, FaTag, FaShoppingCart } from "react-icons/fa";
 import "./Cart.css";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import {
-  updateCart,
-  removeFromCart,
-  addToWishlist,
-} from "../Redux/OnlyBrandSlice";
+import { updateCart, addToWishlist } from "../Redux/OnlyBrandSlice";
 import { Card } from "flowbite-react";
-
 
 const Cart = () => {
   const dispatch = useDispatch();
-
-  // استرجاع المنتجات من Redux أو من localStorage
   const products = useSelector((state) => state.OnlyBrand.products);
 
   useEffect(() => {
-    // تحميل البيانات من localStorage إذا كانت الحالة فارغة
     if (products.length === 0) {
-      const savedProducts =
-        JSON.parse(localStorage.getItem("cartProducts")) || [];
+      const savedProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
       if (savedProducts.length > 0) {
         dispatch(updateCart(savedProducts));
       }
     }
   }, [dispatch, products.length]);
 
-  // حفظ البيانات في localStorage عند تغييرها
   useEffect(() => {
     localStorage.setItem("cartProducts", JSON.stringify(products));
   }, [products]);
@@ -70,120 +60,118 @@ const Cart = () => {
   }
 
   return (
-    <div className="details-cart-container">
-      <h2>Cart Details</h2>
-      <div className="cart-details">
-        {products.map((product) => (
-          <Card className="max-w-sm" horizontal>
-            <img
-              src={product.image}
-              alt="Product"
-              style={{ width: "250px", height: "200px", objectFit: "cover" }}
-            />
-          <div className="product-info">
-            <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              {product.name}
-            </h5>
-            <p className="font-normal text-gray-700 dark:text-gray-400">
-              {product.title}
-            </p>
-            <p className="text-gray-600 dark:text-gray-400">Size: 2XL</p>
-            <div className="price-and-delivery my-4">
-              <span className="text-lg font-semibold text-gray-900 dark:text-white">
-                {product.price} EGY
+    <div className="cart-container container mx-auto px-2 py-8">
+  <h2 className="text-3xl font-semibold mb-6">Cart Details</h2>
+  <div className="cart-items grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    {products.map((product) => (
+      <Card className="w-full sm:w-full xs:w-full p-0">
+        <img
+          src={product.image}
+          alt="Product"
+          className="w-full h-60 object-contain rounded-md"
+        />
+        <div className="product-info sm:m-0 xs:m-0 mt-2 mb-2">
+          <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+            {product.name}
+          </h5>
+          <p className="font-normal text-gray-700 dark:text-gray-400">
+            {product.title}
+          </p>
+          <p className="text-gray-600 dark:text-gray-400">Size: 2XL</p>
+          <div className="price-and-delivery my-2">
+            <span className="text-lg font-semibold text-gray-900 dark:text-white">
+              {product.price} EGY
+            </span>
+            <span className="ml-2 text-sm text-green-600">
+              Free Delivery{" "}
+              <span className="font-medium text-green-700">
+                GET IT <span className="font-bold">TOMORROW</span>
               </span>
-              <span className="ml-2 text-sm text-green-600">
-                Free Delivery{" "}
-                <span className="font-medium text-green-700">
-                  GET IT <span className="font-bold">TOMORROW</span>
-                </span>
-              </span>
-            </div>
-            <div className="actions flex flex-col gap-2">
-              <button
-                className="remove-button flex items-center text-red-600 hover:underline"
-                onClick={() => handleRemove(product.id)}
-              >
-                <FaTrash className="mr-2" />
-                <span onClick={() => removeFromCart(product.id)}>Remove</span>
-              </button>
-              <button
-                className="wishlist-button flex items-center text-blue-600 hover:underline"
-                onClick={() =>
-                  dispatch(
-                    addToWishlist({
-                      id: product.id,
-                      name: product.name,
-                      description: product.description,
-                      brand: product.brand,
-                      title: product.title,
-                      price: product.price,
-                      imageCover: product.image,
-                    },)
-                  )
-                }
-              >
-                <FaHeart className="mr-2" />
-                <span>Add To Wishlist</span>
-              </button>
-              <select className="pieces-select mt-2 border rounded px-2 py-1 text-gray-900 dark:text-gray-400">
-                <option>1 Piece</option>
-                <option>2 Pieces</option>
-                <option>3 Pieces</option>
-              </select>
-            </div>
+            </span>
           </div>
-        </Card>        
-        ))}
-
-        {/* Checkout Summary and Coupon */}
-        <div className="checkout-summary">
-          <div className="coupon-container">
-            <input
-              type="text"
-              placeholder="Enter Coupon Code Here"
-              className="coupon-input"
-            />
-            <button className="apply-button">
-              <FaTag />
-              Apply
+          <div className="actions flex flex-col gap-1 sm:m-0 xs:m-0 mt-2">
+            <button
+              className="remove-button flex items-center text-red-600 hover:underline"
+              onClick={() => handleRemove(product.id)}
+            >
+              <FaTrash className="mr-2" />
+              <span>Remove</span>
             </button>
-          </div>
-          <div className="summary-info">
-            <p>
-              {products.length} Items{" "}
-              <span>
-                {products.reduce((total, product) => total + product.price, 0)}{" "}
-                EGY
-              </span>
-            </p>
-            <p>
-              Delivery Shipping <span>50 EGY</span>
-            </p>
-            <p>
-              Total (VAT){" "}
-              <span>
-                {products.reduce((total, product) => total + product.price, 0) +
-                  50}{" "}
-                EGY
-              </span>
-            </p>
-          </div>
-          <Link to="/checkout">
-            <button className="checkout-button">
-              <FaShoppingCart />
-              CHECKOUT
+            <button
+              className="wishlist-button flex items-center text-blue-600 hover:underline"
+              onClick={() =>
+                dispatch(
+                  addToWishlist({
+                    id: product.id,
+                    name: product.name,
+                    description: product.description,
+                    brand: product.brand,
+                    title: product.title,
+                    price: product.price,
+                    imageCover: product.image,
+                  })
+                )
+              }
+            >
+              <FaHeart className="mr-2" />
+              <span>Add To Wishlist</span>
             </button>
-          </Link>
+            <select className="pieces-select mt-2 border rounded px-2 py-1 text-gray-900 dark:text-gray-400">
+              <option>1 Piece</option>
+              <option>2 Pieces</option>
+              <option>3 Pieces</option>
+            </select>
+          </div>
         </div>
-      </div>
+      </Card>
+    ))}
+  </div>
+
+  {/* Checkout Summary */}
+  <div className="checkout-summary bg-white p-6 rounded-md shadow-md mt-8">
+    <div className="coupon-container flex justify-between items-center mb-6">
+      <input
+        type="text"
+        placeholder="Enter Coupon Code Here"
+        className="w-full border px-4 py-2 rounded-md text-gray-900"
+      />
+      <button className="apply-button bg-black text-white px-4 py-2 ml-2 rounded-md hover:bg-gray-800">
+        <FaTag />
+        Apply
+      </button>
     </div>
+
+    <div className="summary-info mb-6">
+      <p className="text-lg">
+        {products.length} Items{" "}
+        <span className="font-semibold text-gray-900">
+          {products.reduce((total, product) => total + product.price, 0)} EGY
+        </span>
+      </p>
+      <p className="text-lg">
+        Delivery Shipping <span className="font-semibold text-gray-900">50 EGY</span>
+      </p>
+      <p className="text-lg font-semibold">
+        Total (VAT){" "}
+        <span className="font-bold text-gray-900">
+          {products.reduce((total, product) => total + product.price, 0) + 50} EGY
+        </span>
+      </p>
+    </div>
+
+    <Link to="/checkout">
+      <button className="checkout-button w-full bg-black text-white px-6 py-3 rounded-md hover:bg-gray-800 flex items-center justify-center">
+        <FaShoppingCart className="mr-2" />
+        Checkout
+      </button>
+    </Link>
+  </div>
+</div>
+
   );
 
   function handleRemove(productId) {
-    const updatedProducts = products.filter(
-      (product) => product.id !== productId
-    );
+    const updatedProducts = products.filter((product) => product.id !== productId);
     dispatch(updateCart(updatedProducts));
     localStorage.setItem("cartProducts", JSON.stringify(updatedProducts));
   }

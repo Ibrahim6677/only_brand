@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useMediaQuery } from "react-responsive";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
@@ -55,21 +55,9 @@ const Recommend = () => {
         ...prevLikedItems,
         [id]: !prevLikedItems[id],
       };
-  
-      // تحديث البيانات في localStorage
-      localStorage.setItem("likedItems", JSON.stringify(updatedLikedItems));
-  
       return updatedLikedItems;
     });
   };
-  
-  // عند تحميل الصفحة، استرجاع الحالة من localStorage
-  useEffect(() => {
-    const storedLikedItems = JSON.parse(localStorage.getItem("likedItems")) || {};
-    setLikedItems(storedLikedItems);
-  }, []);
-  
-
   return (
     <>
       <h2 className="text-2xl font-bold m-8 ">Recommended For You</h2>
@@ -148,7 +136,7 @@ const Recommend = () => {
       </AnimatePresence>
 
       {/* الأزرار */}
-      <div className="flex justify-between items-center mt-6 w-full">
+      <div className="flex justify-between items-center mt-6 mb-10 w-full">
         <button
           onClick={handlePrevious}
           className="text-white bg-gray-800 py-2 px-4 rounded-full transition duration-300"

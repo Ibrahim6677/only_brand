@@ -3,28 +3,44 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
-import CloseIcon from "@mui/icons-material/Close"; // استيراد أيقونة Close
-import { Link } from "react-router-dom";
+import CloseIcon from "@mui/icons-material/Close";
+import RestoreIcon from "@mui/icons-material/Restore";
+import HomeIcon from "@mui/icons-material/Home";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import Register from "./LoginSignupModal";
 
 const Navbar = () => {
-  const [isSignInOpen, setIsSignInOpen] = useState(false); // حالة للتحكم في النافذة
+  const [isSignInOpen, setIsSignInOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [previousPath, setPreviousPath] = useState(location.pathname);
 
-  // دالة لإظهار نافذة تسجيل الدخول
-  const handleSignInOpen = () => {
-    setIsSignInOpen(true);
-    document.body.style.overflow = "hidden"; // تعطيل التمرير في الصفحة الرئيسية
+  const handleChange = (event) => {
+    const path = event.target.value;
+    if (path) {
+      navigate(path);
+    }
   };
 
-  // دالة لإغلاق نافذة تسجيل الدخول
+  const handleSignInOpen = () => {
+    setPreviousPath(location.pathname); // حفظ الصفحة الحالية
+    setIsSignInOpen(true);
+    document.body.style.overflow = "hidden";
+  };
+
   const handleSignInClose = () => {
     setIsSignInOpen(false);
-    document.body.style.overflow = "auto"; // إعادة التمرير
+    document.body.style.overflow = "auto";
+  };
+
+  const handleSignInSuccess = () => {
+    setIsSignInOpen(false);
+    document.body.style.overflow = "auto";
+    navigate(previousPath); // العودة إلى الصفحة السابقة
   };
 
   return (
     <div className="flex justify-between items-center lg:p-4 md:p-4">
-      {/* روابط التنقل على الشاشات الكبيرة */}
       <div className="flex justify-between md:px-6 lg:px-8 md:hidden lg:flex sm:hidden xs:hidden">
         <Link to="/">
           <li className="mr-10 list-none cursor-pointer text-gray-600">
@@ -40,21 +56,15 @@ const Navbar = () => {
           </li>
         </Link>
       </div>
-
-      {/* قائمة منسدلة للتنقل على الشاشات الصغيرة */}
-      <select className="md-text-sm lg:hidden md:flex xs:hidden pr-5 xs-text-xs w-30">
-        <option>
-          <Link to="/">New Arrival</Link>
-        </option>
-        <option>
-          <Link to="/men">Men</Link>
-        </option>
-        <option>
-          <Link to="/women">Women</Link>
-        </option>
+      <select
+        className="md-text-sm lg:hidden md:flex xs:hidden pr-5 xs-text-xs w-30"
+        onChange={handleChange}
+      >
+        <option value="/">New Arrival</option>
+        <option value="/men">Men</option>
+        <option value="/women">Women</option>
       </select>
 
-      {/* الشعار */}
       <div className="md:flex lg:flex xs:hidden sm:hidden">
         <Link to="/">
           <img
@@ -66,7 +76,6 @@ const Navbar = () => {
         </Link>
       </div>
 
-      {/* icon */}
       <div className="flex justify-between sm:hidden xs:hidden lg:flex md:flex space-x-6">
         <li className="lg:px-8 list-none cursor-pointer">
           <Link to="/search">
@@ -91,56 +100,62 @@ const Navbar = () => {
         </li>
       </div>
 
-      <div className="flex flex-col items-center p-4 space-y-4 w-full mx-auto sm:flex xs:flex md:hidden lg:hidden">
-        {/* الشريط العلوي */}
+      <div className="flex flex-col items-center relative p-4 space-y-4 w-full mx-auto sm:flex xs:flex md:hidden lg:hidden">
         <div className="flex items-center justify-between w-full max-w-md">
-          {/* القائمة المنسدلة */}
-          <select className="xs-text-xs sm:w-25">
-            <option>
-              <Link to="/">New Arrival</Link>
-            </option>
-            <option>
-              <Link to="/men">Men</Link>
-            </option>
-            <option>
-              <Link to="/women">Women</Link>
-            </option>
+          <select
+            className="border-none bg-transparent text-gray-700 text-sm focus:outline-none"
+            onChange={handleChange}
+          >
+            <option value="/">New Arrival</option>
+            <option value="/men">Men</option>
+            <option value="/women">Women</option>
           </select>
-
-          {/* الشعار */}
           <img
-            className="cursor-pointer sm-w-60 xs-w-20 xs:px-4"
+            className="cursor-pointer w-20 sm:w-24 xs:w-20 absolute top-4 left-44"
             src="/images/logo/logo yet.png"
-            width={130}
             alt="logo"
           />
-
-          {/* أيقونة المفضلة */}
-          <FavoriteBorderIcon />
-          <shoppingCartIcon />
+          <Link to="/FavoritePage">
+            <FavoriteBorderIcon className="text-gray-500 absolute top-5 right-10" />
+          </Link>
         </div>
-
-        {/* مربع البحث */}
         <div className="flex items-center w-full max-w-md p-2 border border-gray-300 rounded-full bg-white">
-          <SearchIcon />
+          <SearchIcon className="text-gray-500" />
           <input
             type="text"
             placeholder="Search For Only Brand"
-            className="flex-grow px-2 text-gray-700 bg-transparent focus:outline-none"
+            className="flex-grow px-2 text-gray-700 bg-transparent border-none focus:outline-none"
           />
+          <button>
+            <RestoreIcon className="text-gray-500" />
+          </button>
         </div>
       </div>
-      {/* sign in */}
+
+      <div className="fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t-2 border-gray-200 p-3 flex justify-around items-center sm:flex xs:flex md:hidden lg:hidden z-50">
+        <Link to="/">
+          <HomeIcon className={`text-gray-600 ${location.pathname === '/' ? 'text-black bg-gray-200 p-2 rounded-full' : ''}`} />
+        </Link>
+        <Link to="/search">
+          <SearchIcon className={`text-gray-600 ${location.pathname === '/search' ? 'text-black bg-gray-200 p-2 rounded-full' : ''}`} />
+        </Link>
+        <Link to="/cart">
+          <ShoppingCartIcon className={`text-gray-600 ${location.pathname === '/cart' ? 'text-black bg-gray-200 p-2 rounded-full' : ''}`} />
+        </Link>
+        <Link to="/Register">
+          <PersonOutlineIcon className={`text-gray-600 ${location.pathname === '/Register' ? 'text-black bg-gray-200 p-2 rounded-full' : ''}`} />
+        </Link>
+      </div>
+
       {isSignInOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
-          onClick={handleSignInClose} // يغلق النافذة عند الضغط على الخلفية
+          onClick={handleSignInClose}
         >
           <div
             className="secform bg-white p-6 rounded-lg shadow-lg w-96 relative signInModal"
-            onClick={(e) => e.stopPropagation()} // يمنع غلق النافذة عند الضغط داخلها
+            onClick={(e) => e.stopPropagation()}
           >
-            {/* button Close */}
             <button
               onClick={handleSignInClose}
               className="absolute top-0 right-3 text-gray-600 cursor-pointer"
@@ -156,7 +171,7 @@ const Navbar = () => {
             >
               <CloseIcon className="text-gray-600" />
             </button>
-            <Register />
+            <Register onSuccess={handleSignInSuccess} />
           </div>
         </div>
       )}

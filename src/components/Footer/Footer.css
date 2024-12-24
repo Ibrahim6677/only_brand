@@ -1,5 +1,5 @@
 /* التنسيق الأساسي للفوتر */
-.footer {
+footer {
   background-color: #1E1E1E;
   background-image: url('/public/images/logo/logo text.png');
   /* ضع مسار الصورة هنا */
@@ -12,17 +12,8 @@
   position: relative;
 }
 
-/* الصورة داخل الفوتر */
-.footer-logo {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 10 auto ;
-  /* margin-top: 2rem; */
-}
-
 /* تأثير خلفية داكنة فوق الصورة */
-.footer::before {
+footer::before {
   content: '';
   position: absolute;
   top: 0;
@@ -33,120 +24,3 @@
   z-index: 1;
 }
 
-/* تنسيق محتوى الفوتر */
-.footer-content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  max-width: 1400px;
-  padding: 30px 30px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 2;
-}
-
-/* تقسيم الفوتر إلى أقسام */
-.footer-section {
-  flex: 1 1 150px;
-  margin-bottom: 30px;
-}
-
-/* العناوين في الفوتر */
-.footer-section h4 {
-  font-size: 1.2rem;
-  margin-bottom: 15px;
-  font-weight: bold;
-}
-
-/* قائمة الأقسام */
-.footer-section ul {
-  list-style-type: none;
-  padding: 0;
-  
-}
-
-.footer-section ul li {
-  margin-bottom: 10px;
-  cursor: pointer;
-}
-/* تنسيق أيقونات التواصل الاجتماعي */
-.social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 15px;
-}
-
-.social-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background-color: #333;
-  border-radius: 50%;
-  color: #fff;
-  font-size: 1.5rem;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.social-icon:hover {
-  background-color: #fff;
-  color: #000;
-}
-
-/* تحسين التصميم التفاعلي للشاشات الصغيرة */
-@media (max-width: 768px) {
-  .footer-content {
-      flex-direction: column;
-      align-items: center;
-  }
-  .footer-logo{
-    width: 160px;
-  }
-  .footer-section {
-      text-align: center;
-      flex: 1 1 100%;
-  }
-
-  .social-icons {
-      justify-content: center;
-  }
-}
-
-/* تحسين التصميم على الشاشات الصغيرة جدا */
-@media (max-width: 480px) {  
-  .footer {
-      padding: 10px;
-  }
-
-  .footer-section h4 {    
-      font-size: 1rem;
-  }
-
-  .footer-section ul li {
-      font-size: 0.9rem;
-  }
-
-  .social-icon {
-      width: 40px;
-      height: 40px;
-      font-size: 1.2rem;
-  }
-}@media screen and (min-width: 1024px) and (max-width: 1280px) {
-.footer {
-      padding: 30px 10px;
-      margin: auto;
-  }
-      .footer-section {
-          text-align: center;
-          flex: 2 2 90px;
-      }
-}
-
-@media screen and (min-width: 1366px) and (max-width: 1440px) {
-  .footer-section {
-          text-align: center;
-  flex: 2 2 0;
-}
-}
