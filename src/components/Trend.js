@@ -97,6 +97,7 @@ const Trend = () => {
                       title: item.title,
                       price: item.price,
                       imageCover: item.imageCover,
+                      state: item.state,
                     },
                   ));
                 }}

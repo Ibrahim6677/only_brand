@@ -82,10 +82,12 @@ const ProductPage = () => {
                   addToCart({
                     id: product.id,
                     name: product.name,
+                    title: product.title,
                     price: product.price,
                     image: product.imageCover,
                     description: product.description,
                     quantity: 1,
+                    state: product.state,
                   })
                 )
               }
@@ -105,10 +107,12 @@ const ProductPage = () => {
                 dispatch(
                   addToWishlist({
                     id: product.id,
+                    name: product.name,
                     brand: product.brand,
                     title: product.title,
                     price: product.price,
                     imageCover: product.imageCover,
+                    state: product.state,
                   })
                 )
               }

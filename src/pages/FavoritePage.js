@@ -61,18 +61,19 @@ const FavoritePage = () => {
               <img
                 src={product.imageCover}
                 alt={product.name}
-                className="w-full h-56 object-cover"
+                className="w-full h-56 object-contain"
               />
-              {product.isSale && (
-                <span className="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">
-                  Sale
-                </span>
-              )}
-              {product.isNewArrival && (
-                <span className="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded">
+              {product.state === "New Arrival" ? (
+                <span className="absolute top-2 left-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded">
                   New Arrival
                 </span>
-              )}
+              ) : product.state === "Sale" ? (
+                <span className="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">
+                  Sale
+                </span>
+              ) : null}
+                
+                
             </div>
             <div className="p-4">
               <h3 className="text-md font-medium text-gray-800">
@@ -90,6 +91,7 @@ const FavoritePage = () => {
                       addToCart({
                         id: product.id,
                         name: product.name,
+                        title: product.title,
                         price: product.price,
                         image: product.imageCover,
                         description: product.description,

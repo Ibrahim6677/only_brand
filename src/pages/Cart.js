@@ -109,6 +109,7 @@ const Cart = () => {
                     title: product.title,
                     price: product.price,
                     imageCover: product.image,
+                    state: product.state,
                   })
                 )
               }

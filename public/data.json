@@ -17,7 +17,7 @@
     "type": "Sneakers",
     "kind":"men",
     "section": "Trend",
-    "isNewArrival": "true"
+    "state": "New Arrival"
   },
   {
     "id": 2,
@@ -37,7 +37,7 @@
     "type": "Running Shoes",
     "kind": "men",
     "section": "Trend",
-    "isNewArrival": "true"
+    "state": "New Arrival"
   },
   {
     "id": 3,
@@ -56,7 +56,7 @@
     "type": "Black Shoes",
     "kind": "men",
     "section": "Trend",
-    "isNewArrival": "true"
+    "state": "New Arrival"
   },
   {
     "id": 4,
@@ -75,7 +75,7 @@
     "type": "Black Shoes",
     "kind": "men",
     "section": "Trend",
-    "isNewArrival": "true"
+    "state": "New Arrival"
   },
   {
     "id": 5,
@@ -94,7 +94,7 @@
     "type": "Premium Boot",
     "kind": "men, women",
     "section": "Trend",
-    "isNewArrival": "true"
+    "state": "New Arrival"
   },
   {
     "id": 6,
@@ -113,7 +113,7 @@
     "type": "Oversize Coat",
     "kind": "men, women",
     "section": "Trend",
-    "isNewArrival": "true"
+    "state": "Sale"
   },
   {
     "id": 7,
@@ -132,7 +132,7 @@
     "type": "Hoodie",
     "kind": "men, women",
     "section": "Trend",
-    "isSale": "true"
+    "state": "New Arrival"
   },
   {
     "id": 8,
@@ -151,7 +151,7 @@
     "type": "Black Shoes",
     "kind":"men",
     "section": "Trend",
-    "isSale": "true"
+    "state": "New Arrival"
   },
   {
     "id": 9,
@@ -170,7 +170,7 @@
     "type": "Oversize Jacket",
     "kind":"men",
     "section": "Trend",
-    "isSale": "true"
+    "state": "Sale"
   },
   {
     "id": 10,
@@ -189,7 +189,7 @@
     "type": "Grey Shoes",
     "kind":"women",
     "section": "Trend",
-    "isSale": "true"
+    "state": "New Arrival"
   },
   {
     "id": 11,
@@ -208,7 +208,7 @@
     "type": "Grey Shoes",
     "kind":"women",
     "section": "Trend",
-    "isSale": "true"
+    "state": "Sale"
   },
   {
     "id": 12,
@@ -227,7 +227,7 @@
     "type": "Grey Shoes",
     "kind":"women",
     "section": "Trend",
-    "isSale": "true"
+    "state": "New Arrival"
   },
   {
     "id": 13,
@@ -246,7 +246,7 @@
     "type": "Grey Shoes",
     "kind":"women",
     "section": "Trend",
-    "isSale": "true"
+    "state": "New Arrival"
   },
   {
     "id": 14,
@@ -265,7 +265,7 @@
     "type": "Grey Shoes",
     "kind":"women",
     "section": "Trend",
-    "isNewArrival": "true"
+    "state": "Sale"
   },
   {
     "id": 15,
@@ -284,7 +284,7 @@
     "type": "Grey Shoes",
     "kind":"women",
     "section": "Trend",
-    "isNewArrival": "true"
+    "state": "Sale"
   },
   {
     "id": 16,
@@ -303,6 +303,6 @@
     "type": "Grey Shoes",
     "kind":"women",
     "section": "Trend",
-    "isSale": "true"
+    "state": "Sale"
   }
 ]
