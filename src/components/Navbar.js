@@ -7,8 +7,13 @@ import CloseIcon from '@mui/icons-material/Close';  // استيراد أيقون
 import { Link } from 'react-router-dom';
 import Regester from "./LoginSignupModal"
 import FavoretPag from "../pages/FavoretPag"
+import { useSelector } from "react-redux";  
+
 
 const Navbar = () => {
+
+    const products = useSelector((state) => state.OnlyBrand.products) || [];
+
   const [isSignInOpen, setIsSignInOpen] = useState(false); // حالة للتحكم في النافذة
 
   // دالة لإظهار نافذة تسجيل الدخول
@@ -52,10 +57,15 @@ const Navbar = () => {
             <li className="lg:px-8 list-none cursor-pointer">
              <Link to={"/FavoretPag"}>  
        <FavoriteBorderIcon className="text-gray-600"/>
+       
         </Link>
         </li>
         <li className="lg:px-8 list-none cursor-pointer">
-          <Link to="/cart"><ShoppingCartIcon className="text-gray-600"/></Link>
+          <Link to="/cart"><ShoppingCartIcon className="text-gray-600"/>
+          
+          {products.length > 0 ? products.length :0}
+          
+          </Link>
         </li>
         <li className="lg:px-5 list-none cursor-pointer">
           <PersonOutlineIcon className="text-gray-600" onClick={handleSignInOpen} />

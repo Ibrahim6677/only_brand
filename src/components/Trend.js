@@ -16,7 +16,7 @@ const Trend = () => {
   // إدارة حالة الأيقونات المحبوبة لكل بطاقة
   const [likedItems, setLikedItems] = useState({}); // مفتاح id يحمل حالة كل عنصر
 
-  const isMobile = useMediaQuery({ query: "(max-width: 640px)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 640px)" });    
   const isTablet = useMediaQuery({
     query: "(min-width: 641px) and (max-width: 1024px)",
   });
@@ -50,8 +50,10 @@ const Trend = () => {
     setLikedItems((prevLikedItems) => ({
       ...prevLikedItems,
       [id]: !prevLikedItems[id],
+              
     }));
   };
+
 
   return (
     <div className="flex flex-col items-center justify-center mt-8 w-full p-4">
@@ -76,10 +78,12 @@ const Trend = () => {
               {/* أيقونة القلب */}
               <div
                 className="absolute top-2 right-2 cursor-pointer"
-                onClick={() => toggleLike(item.id)}
+                onClick={() => toggleLike(item.id)}   
               >
                 {likedItems[item.id] ? (
                   <FavoriteIcon className="text-red-500" />
+
+
                 ) : (
                   <FavoriteBorderIcon className="text-gray-500" />
                 )}

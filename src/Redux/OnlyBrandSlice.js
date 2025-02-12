@@ -22,8 +22,18 @@ const OnlyBrandSlice = createSlice({
     removeFromCart: (state, action) => {
       state.products = state.products.filter((product) => product.id !== action.payload.id);
     },
+
+     addfavoret: (state ,action)=>{
+      const item = state.products.find((product) => product.id === action.payload.id);
+       if (item) {
+        item.quantity += action.payload.quantity;
+      } else {
+        state.products.push(action.payload);
+      }
+      },
+    
   },
 });
 
-export const { addToCart, updateCart, removeFromCart } = OnlyBrandSlice.actions;
+export const { addToCart, updateCart, removeFromCart ,addfavoret} = OnlyBrandSlice.actions;
 export default OnlyBrandSlice.reducer;

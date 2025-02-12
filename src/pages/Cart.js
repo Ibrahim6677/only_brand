@@ -3,7 +3,7 @@ import { FaTrash, FaHeart, FaTag, FaShoppingCart } from "react-icons/fa";
 import "./Cart.css";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { updateCart, removeFromCart } from "../Redux/OnlyBrandSlice";
+import { updateCart, removeFromCart, addfavoret } from "../Redux/OnlyBrandSlice";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -82,9 +82,27 @@ const Cart = () => {
                   <FaTrash />
                   <span onClick={() => removeFromCart(product.id)}>Remove</span>
                 </button>
-                <button className="wishlist-button">
+                <button onClick={()=>dispatch(addfavoret(
+          
+                         {
+                          id: product.id,
+                          name: product.name,
+                          image: product.imageCover,
+                          price: product.price,
+                          title: product.title,
+                          size: product.size,
+                          color: product.color,
+                          }
+                         
+
+
+                ))} className="wishlist-button">
                   <FaHeart />
-                  <span>Add To Wishlist</span>
+                  <span>Add To Wishlist
+
+
+
+                  </span>
                 </button>
                 <select className="pieces-select">
                   <option>1 Piece</option>
