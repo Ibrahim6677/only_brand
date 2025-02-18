@@ -67,7 +67,6 @@ const OnlyBrandSlice = createSlice({
   },
 });
 
-<<<<<<< HEAD
 export const {
   addToCart,
   updateCart,
@@ -77,7 +76,4 @@ export const {
   updateWithWishlist,
 } = OnlyBrandSlice.actions;
 
-=======
-export const { addToCart, updateCart, removeFromCart ,addfavoret} = OnlyBrandSlice.actions;
->>>>>>> 0515890490cae0e270579ccba212218b746548e7
 export default OnlyBrandSlice.reducer;
