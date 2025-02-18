@@ -54,9 +54,20 @@ const OnlyBrandSlice = createSlice({
     updateWithWishlist: (state, action) => {
       state.favoriteproducts = action.payload;
     },
+
+     addfavoret: (state ,action)=>{
+      const item = state.products.find((product) => product.id === action.payload.id);
+       if (item) {
+        item.quantity += action.payload.quantity;
+      } else {
+        state.products.push(action.payload);
+      }
+      },
+    
   },
 });
 
+<<<<<<< HEAD
 export const {
   addToCart,
   updateCart,
@@ -66,4 +77,7 @@ export const {
   updateWithWishlist,
 } = OnlyBrandSlice.actions;
 
+=======
+export const { addToCart, updateCart, removeFromCart ,addfavoret} = OnlyBrandSlice.actions;
+>>>>>>> 0515890490cae0e270579ccba212218b746548e7
 export default OnlyBrandSlice.reducer;

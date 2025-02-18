@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import SearchIcon from "@mui/icons-material/Search";
@@ -14,6 +15,25 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [previousPath, setPreviousPath] = useState(location.pathname);
+=======
+import React, { useState } from 'react';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import SearchIcon from '@mui/icons-material/Search';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import CloseIcon from '@mui/icons-material/Close';  // استيراد أيقونة Close
+import { Link } from 'react-router-dom';
+import Regester from "./LoginSignupModal"
+import FavoretPag from "../pages/FavoretPag"
+import { useSelector } from "react-redux";  
+
+
+const Navbar = () => {
+
+    const products = useSelector((state) => state.OnlyBrand.products) || [];
+
+  const [isSignInOpen, setIsSignInOpen] = useState(false); // حالة للتحكم في النافذة
+>>>>>>> 0515890490cae0e270579ccba212218b746548e7
 
   const handleChange = (event) => {
     const path = event.target.value;
@@ -78,6 +98,7 @@ const Navbar = () => {
 
       <div className="flex justify-between sm:hidden xs:hidden lg:flex md:flex space-x-6">
         <li className="lg:px-8 list-none cursor-pointer">
+<<<<<<< HEAD
           <Link to="/search">
             <SearchIcon className="text-gray-600" />
           </Link>
@@ -90,6 +111,21 @@ const Navbar = () => {
         <li className="lg:px-8 list-none cursor-pointer">
           <Link to="/cart">
             <ShoppingCartIcon className="text-gray-600" />
+=======
+          <Link to="/search"><SearchIcon className="text-gray-600"/></Link>
+        </li>
+            <li className="lg:px-8 list-none cursor-pointer">
+             <Link to={"/FavoretPag"}>  
+       <FavoriteBorderIcon className="text-gray-600"/>
+       
+        </Link>
+        </li>
+        <li className="lg:px-8 list-none cursor-pointer">
+          <Link to="/cart"><ShoppingCartIcon className="text-gray-600"/>
+          
+          {products.length > 0 ? products.length :0}
+          
+>>>>>>> 0515890490cae0e270579ccba212218b746548e7
           </Link>
         </li>
         <li className="lg:px-5 list-none cursor-pointer">

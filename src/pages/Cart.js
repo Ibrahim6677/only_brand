@@ -3,8 +3,12 @@ import { FaTrash, FaHeart, FaTag, FaShoppingCart } from "react-icons/fa";
 import "./Cart.css";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+<<<<<<< HEAD
 import { updateCart, addToWishlist } from "../Redux/OnlyBrandSlice";
 import { Card } from "flowbite-react";
+=======
+import { updateCart, removeFromCart, addfavoret } from "../Redux/OnlyBrandSlice";
+>>>>>>> 0515890490cae0e270579ccba212218b746548e7
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -60,6 +64,7 @@ const Cart = () => {
   }
 
   return (
+<<<<<<< HEAD
     <div className="cart-container container mx-auto px-2 py-8">
   <h2 className="text-3xl font-semibold mb-6">Cart Details</h2>
   <div className="cart-items grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -86,6 +91,90 @@ const Cart = () => {
               Free Delivery{" "}
               <span className="font-medium text-green-700">
                 GET IT <span className="font-bold">TOMORROW</span>
+=======
+    <div className="details-cart-container">
+      <h2>Cart Details</h2>
+      <div className="cart-details">
+        {products.map((product) => (
+          <div className="cart-item" key={product.id}>
+            <img
+              src={product.imageCover}
+              alt="Product"
+              className="product-image"
+            />
+            <div className="product-info">
+              <h3>{product.name}</h3>
+              <p>{product.title}</p>
+              <p>Size: 2XL</p>
+              <div className="price-and-delivery">
+                <span className="price">{product.price} EGY</span>
+                <span className="delivery-info">
+                  Free Delivery{" "}
+                  <span className="delivery-day tomorrow">
+                    GET IT <span>TOMORROW</span>
+                  </span>
+                </span>
+              </div>
+              <div className="actions">
+                <button
+                  className="remove-button"
+                  onClick={() => handleRemove(product.id)}
+                >
+                  <FaTrash />
+                  <span onClick={() => removeFromCart(product.id)}>Remove</span>
+                </button>
+                <button onClick={()=>dispatch(addfavoret(
+          
+                         {
+                          id: product.id,
+                          name: product.name,
+                          image: product.imageCover,
+                          price: product.price,
+                          title: product.title,
+                          size: product.size,
+                          color: product.color,
+                          }
+                         
+
+
+                ))} className="wishlist-button">
+                  <FaHeart />
+                  <span>Add To Wishlist
+
+
+
+                  </span>
+                </button>
+                <select className="pieces-select">
+                  <option>1 Piece</option>
+                  <option>2 Pieces</option>
+                  <option>3 Pieces</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        ))}
+
+        {/* Checkout Summary and Coupon */}
+        <div className="checkout-summary">
+          <div className="coupon-container">
+            <input
+              type="text"
+              placeholder="Enter Coupon Code Here"
+              className="coupon-input"
+            />
+            <button className="apply-button">
+              <FaTag />
+              Apply
+            </button>
+          </div>
+          <div className="summary-info">
+            <p>
+              {products.length} Items{" "}
+              <span>
+                {products.reduce((total, product) => total + product.price, 0)}{" "}
+                EGY
+>>>>>>> 0515890490cae0e270579ccba212218b746548e7
               </span>
             </span>
           </div>

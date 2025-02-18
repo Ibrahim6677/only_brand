@@ -19,7 +19,7 @@ const Trend = () => {
   // إدارة حالة الأيقونات المحبوبة لكل بطاقة
   const [likedItems, setLikedItems] = useState({}); // مفتاح id يحمل حالة كل عنصر
 
-  const isMobile = useMediaQuery({ query: "(max-width: 640px)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 640px)" });    
   const isTablet = useMediaQuery({
     query: "(min-width: 641px) and (max-width: 1024px)",
   });
@@ -50,6 +50,7 @@ const Trend = () => {
 
   // تغيير حالة الإعجاب عند النقر
   const toggleLike = (id) => {
+<<<<<<< HEAD
     setLikedItems((prevLikedItems) => {
       const updatedLikedItems = {
         ...prevLikedItems,
@@ -57,9 +58,17 @@ const Trend = () => {
       };
       return updatedLikedItems;
     });
+=======
+    setLikedItems((prevLikedItems) => ({
+      ...prevLikedItems,
+      [id]: !prevLikedItems[id],
+              
+    }));
+>>>>>>> 0515890490cae0e270579ccba212218b746548e7
   };
   
   
+
 
   return (
     <>
@@ -86,6 +95,7 @@ const Trend = () => {
               {/* أيقونة القلب */}
               <div
                 className="absolute top-2 right-2 cursor-pointer"
+<<<<<<< HEAD
                 onClick={() => {
                   toggleLike(item.id);
                   dispatch(addToWishlist(
@@ -101,9 +111,14 @@ const Trend = () => {
                     },
                   ));
                 }}
+=======
+                onClick={() => toggleLike(item.id)}   
+>>>>>>> 0515890490cae0e270579ccba212218b746548e7
               >
                 {likedItems[item.id] ? (
                   <FavoriteIcon className="text-red-500" />
+
+
                 ) : (
                   <FavoriteBorderIcon className="text-gray-500" />
                 )}
